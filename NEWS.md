@@ -1,3 +1,10 @@
+# viper 0.0.0.9006
+
+* Added function `cat_line()` to `utils.R`
+* Added `.onAttach`, `.onLoad` `.onUnload` to `zzz.R` to provide package
+  setup
+* Changed name in `clumper` according to "English" meanign
+
 # viper 0.0.0.9000
 
 * Added support for `%>%` (pipe) operator to the package;

@@ -1,15 +1,15 @@
-viper
+clumpr
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-**V**al**I**dazione **P**rotocollo **E**ccedenze t**R**apianto
+**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
-Last update: 2018-02-14
+Last update: 2018-02-15
 
 Description
 -----------
 
-The `viper` package aims is to provide a toolbox of function for model, validate and visualize dynamics assessed by the "Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
+The `clumpr` package aims is to provide a toolbox of function for model, validate and visualize dynamics assessed by the "Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
 
 The first implementation is focused on the lung-transplant centers management.
 
@@ -29,13 +29,13 @@ You can install viper from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("UBESP-DCTV/viper")
+devtools::install_github("UBESP-DCTV/clumpr")
 ```
 
 Bug reports
 -----------
 
-If you encounter a bug, please file a [reprex](https://github.com/tidyverse/reprex) (minimal reproducible example) to <https://github.com/UBESP-DCTV/viper/issues>
+If you encounter a bug, please file a [reprex](https://github.com/tidyverse/reprex) (minimal reproducible example) to <https://github.com/UBESP-DCTV/clumpr/issues>
 
 References
 ----------

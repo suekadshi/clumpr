@@ -1,13 +1,20 @@
-Package: viper
+Package: clumpr
 Type: Package
-Version: 0.0.0.9000
+Version: 0.0.0.9006
 Date: "`r Sys.Date()`"
-Title: ValIdazione Protocollo Eccedenze tRapianto
-Description: What the package does (one paragraph).
+Title: Current transpLant sUrplus Management Protocol in R
+Description: The `clumpr` package aims is to provide a toolbox of function
+  for model, validate and visualize dynamics assessed by the "Protocollo
+  Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di
+  Trapianto" in Italy. The first implementation is focused on the
+  lung-transplant centers management.
 Maintainer: Corrado Lanera <corrado.lanera@unipd.it>
 Authors@R: c(
     person("Corrado", "Lanera", email = "corrado.lanera@unipd.it",
       role = c("aut", "cre")
+    ),
+    person("Ileana", "Baldi", email = "ileana.baldi@unipd.it",
+      role = c("aut")
     ),
     person("Dario", "Gregori", email = "dario.gegori@unipd.it",
       role = c("aut")
@@ -20,7 +27,14 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Suggests: 
-    testthat
+    testthat,
+    xml2,
+    rvest,
+    stringr,
+    tibble,
+    dplyr
 RoxygenNote: 6.0.1
 Imports: 
-    magrittr
+    magrittr,
+    assertive,
+    crayon
