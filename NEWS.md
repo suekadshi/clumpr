@@ -1,3 +1,7 @@
+# clumpr 0.0.1.0001
+
+* Reshaped badges in `README`
+
 # clumpr 0.0.0.9063
 
 * Added support for Codecov

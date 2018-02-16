@@ -5,12 +5,10 @@ clumpr
 
 [![Travis Build
 Status](https://travis-ci.org/UBESP-DCTV/clumpr.svg?branch=develop)](https://travis-ci.org/UBESP-DCTV/clumpr)
-
-[![CRAN Status
-Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
-
 [![Coverage
 status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/develop/graph/badge.svg)](https://codecov.io/github/UBESP-DCTV/clumpr?branch=develop)
+[![CRAN Status
+Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
 
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in
 **R**
