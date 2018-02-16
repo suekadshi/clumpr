@@ -29,10 +29,14 @@ test_that("throws error on wrong input", {
 
 
 test_that('print works properly', {
-  padova <- center('Padova', 'Veneto')
+  padova <- center('Padova', 'Veneto', 10, 0)
   veneto <- region(set_centers(padova))
-  expect_output(print(veneto), 'Region')
+  expect_output(print(veneto), 'Acceptance')
   expect_is(print(veneto), 'region')
+
+  milano    <- center('Milano', 'Lombardia')
+  lombardia <- region(set_centers(milano), default_p = 0.2)
+  expect_output(print(lombardia), '(at least one)')
 })
 
 
@@ -42,4 +46,12 @@ test_that('pass correct default', {
   lombardia <- region(set_centers(pavia, milano), default_p = 0.3)
 
   expect_equal(get_p_accept(lombardia), at_least_one(c(0.9, 0.3)))
+})
+
+test_that('print works for set_center', {
+  padova <- center('Padova', 'Veneto', 10, 0.8)
+  veneto <- region(set_centers(padova))
+  expect_output(print(get_centers(veneto)), 'Center')
+  expect_is(print(get_centers(veneto)), 'set_centers')
+
 })

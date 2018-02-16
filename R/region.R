@@ -136,6 +136,7 @@ set_centers <- function(...) {
 #' @export
 print.set_centers <- function(x, ...) {
   purrr::walk(x, ~ {print(.); cat_line()})
+  invisible(x)
 }
 
 

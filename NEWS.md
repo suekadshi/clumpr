@@ -1,6 +1,15 @@
+# clumpr 0.0.1.00061
+
+* Fixed bug of `at_least_one()` which leaded to a wrong probability
+  computation;
+* Fixed bug of `print.set_centers()` which didn't returned the imput object
+  as invisible output;
+* Imprved tests for regions.
+
+
 # clumpr 0.0.1.00054
 
-* Updated `README` with starting setup examples
+* Updated `README` with starting setup examples;
 * Added `get_state()` generic, `get_state.center()` and `get_state.region()`
   methods to access to the state of a center or a region;
 * Added `get_p_default()` generic and `get_p_default.region()` mothod to 
@@ -23,11 +32,13 @@
 * Added `set_centers()` to pass correct arguments to `region()`;
 * Added `region()` constructor.
 
+
 # clumpr 0.0.1.0007
 
 * Added test for `zzz.R`;
 * Defined generic function `get_region()` with method for class `center`;
 * Reshaped badges in `README`.
+
 
 # clumpr 0.0.0.9063
 
@@ -38,12 +49,14 @@
 * Provided `print.center()` methods;
 * Created class `center` and its constructor function `center()`.
 
+
 # clumpr 0.0.0.9006
 
 * Added function `cat_line()` to `utils.R`;
 * Added `.onAttach`, `.onLoad` `.onUnload` to `zzz.R` to provide package
   setup;
 * Changed name in `clumper` according to "English" meanign.
+
 
 # viper 0.0.0.9000
 

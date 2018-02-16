@@ -11,5 +11,5 @@ at_least_one <- function(...) {
     purrr::walk(~ assertive::assert_all_are_proportions(.x))
 
   .dots <- unlist(.dots)
-  1 - prod(.dots)
+  1 - prod(neg_p(.dots))
 }
