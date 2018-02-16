@@ -1,6 +1,8 @@
-# clumpr 0.0.1.0001
+# clumpr 0.0.1.0002
 
-* Reshaped badges in `README`
+* Added test for `zzz.R`
+* Defined generic function `get_region()` with method for class `center`;
+* Reshaped badges in `README`.
 
 # clumpr 0.0.0.9063
 

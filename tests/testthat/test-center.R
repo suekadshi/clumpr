@@ -1,4 +1,4 @@
-context("test-centers.R")
+context("test-center.R")
 
 test_that("gets expected class", {
   expect_is(center('Padova', 'Veneto', 10, 0.8), 'center')
@@ -39,3 +39,12 @@ test_that("throws error on wrong input", {
 
 })
 
+test_that('print works properly', {
+  center_test <- center('Padova', 'Veneto', 10, 0.8)
+  center_p0 <- center('Padova', 'Veneto', 10, 0)
+  center_null <- center('Padova', 'Veneto', 10)
+  expect_output(print(center_test), 'Center')
+  expect_output(print(center_p0), 'Center')
+  expect_output(print(center_null), 'inherit')
+  expect_is(print(center_test), 'center')
+})

@@ -4,17 +4,17 @@
 #' homonymous class.
 #'
 #'
-#' @param name [chr] The name of the (city) transplant center.
+#' @param name [chr] the name of the (city) transplant center.
 #' @param region [chr] The name of the (Italian) region in which the center
 #'   inherits (see \code{\link{regions}}).
-#' @param p_accept [dbl] A single number between 0 and 1 (possibly included)
+#' @param p_accept [dbl] a single number between 0 and 1 (possibly included)
 #'   representing the probability to accept an offered organ. Default is
 #'   \code{NULL} meaning that the probability should be considered at region
 #'   level and not at center level.
-#' @param output [dbl] A single number between 0 and 1 (possibly included)
+#' @param output [dbl] a single number between 0 and 1 (possibly included)
 #'   representing the number of organ offered from the center in the
 #'   previous period of reference. Default is 0.
-#' @param state [chr] A name of available state, i.e. included in
+#' @param state [chr] a name of available state, i.e. included in
 #'   \code{\link{names}(\link{regions})} (note: both lowercase and Titlecase are
 #'   fine for write states, i.e. "Italy" works as well as "italy").
 #'
@@ -98,11 +98,20 @@ center <- function(name, region, output = 0L, p_accept = NULL,
 }
 
 
-#' @param x An object of class \code{\link{center}}.
+
+
+
+
+
+
+
+
+
+#' @inheritParams base::print
+#' @describeIn center nice (and coloured, if supported) print method.
 #'
-#' @describeIn center Nice (and coloured, if supported) print for objects
-#'             of class \code{\link{center}}.
-print.center <- function(x) {
+#' @export
+print.center <- function(x, ...) {
   cat_line('    ',
       crayon::bold('Center          : '), crayon::blue(x[['center']]),
       ' (', attr(x, 'region'), ')'
@@ -125,4 +134,6 @@ print.center <- function(x) {
   cat_line('    ',
       crayon::bold('Organ surplus of: '), attr(x, 'output')
   )
+
+  invisible(x)
 }
