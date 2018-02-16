@@ -1,4 +1,4 @@
-# clumpr 0.0.2.0001
+# clumpr 0.0.2.0002
 
 * Organized `get_*()` in folder according to class
 

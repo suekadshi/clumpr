@@ -5,7 +5,7 @@
 #'
 #'
 #' @param centers [lst] a list of objects of class \code{\link{center}},
-#'        passed by \code{\link{set_centers}}. Note: all the center in a
+#'        passed by \code{\link{set_centers}()}. Note: all the center in a
 #'        region must be of the same region and state.
 #' @param default_p [dbl] a single number between 0 and 1 (possibly
 #'   included) representing the default probability for the centers in the
