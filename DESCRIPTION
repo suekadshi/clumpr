@@ -1,6 +1,6 @@
 Package: clumpr
 Type: Package
-Version: 0.0.1.0007
+Version: 0.0.1.0054
 Date: "`r Sys.Date()`"
 Title: Current transpLant sUrplus Management Protocol in R
 Description: The `clumpr` package aims is to provide a toolbox of function
@@ -32,7 +32,8 @@ Imports:
     magrittr,
     assertive,
     crayon,
-    glue
+    glue,
+    purrr
 Suggests: 
     testthat,
     xml2,

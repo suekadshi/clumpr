@@ -2,6 +2,7 @@ context("test-center.R")
 
 test_that("gets expected class", {
   expect_is(center('Padova', 'Veneto', 10, 0.8), 'center')
+  expect_is(center('Padova', 'veneto', 10, 0.8), 'center')
 })
 
 test_that('Uppercase nations are good input', {
@@ -30,13 +31,13 @@ test_that("throws error on wrong input", {
   expect_error(center('Padova', 'Veneto', c(1, 2), 0.8), 'has length')
   expect_error(center('Padova', 'Veneto', 'a', 0.8), 'class \'numeric\'')
   expect_error(center('Padova', 'Veneto', NA_real_, 0.8), 'missing value')
+  expect_is(get_offered(center('Padova', 'Veneto', 10, 0.8)), 'integer')
 
   expect_error(center('Padova', 'Veneto', 10, 'a'), 'class \'numeric\'')
   expect_error(center('Padova', 'Veneto', 10, -0.5), 'too low')
   expect_error(center('Padova', 'Veneto', 10, 5), 'too high')
   expect_error(center('Padova', 'Veneto', 10, c(0.2, 0.3)), 'has length 2')
-  expect_error(center('Padova', 'Veneto', 10, NA_real_), 'missing')
-
+  expect_is(center('Padova', 'Veneto', 10, NA_real_), 'center')
 })
 
 test_that('print works properly', {

@@ -30,6 +30,34 @@ management.
 This is a basic example which shows you how it works:
 
 ``` r
+library(clumpr)
+
+# setup centers and regions
+pavia   <- center('Pavia',   'Lombardia', offered = 11, p_accept = 0.8)
+bergamo <- center('Bergamo', 'Lombardia', offered =  7, p_accept = 0.5)
+milano  <- center('Milano',  'Lombardia', offered =  3)
+
+lombardia <- region(set_centers(pavia, bergamo, milano), default_p = 0.2)
+
+# show data
+lombardia
+#>     Region  : Lombardia (Italy)
+#>     Centers : Pavia, Bergamo, Milano (#3)
+#>     Acceptance rate : 0.92 (at least one center)
+#>     Offered organs  : 21 (from all the centers)
+get_centers(lombardia)
+#>     Center           : Pavia (Lombardia --- Italy)
+#>     Acceptance rate  : 0.8
+#>     Offered organs   : 11
+#> 
+#>     Center           : Bergamo (Lombardia --- Italy)
+#>     Acceptance rate  : 0.5
+#>     Offered organs   : 7
+#> 
+#>     Center           : Milano (Lombardia --- Italy)
+#>     Acceptance rate  : <inherit from the region rate>
+#>     Offered organs   : 3
+
 # TODO
 ```
 

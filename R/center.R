@@ -11,7 +11,7 @@
 #'   representing the probability to accept an offered organ. Default is
 #'   \code{NULL} meaning that the probability should be considered at region
 #'   level and not at center level.
-#' @param output [dbl] a single number between 0 and 1 (possibly included)
+#' @param offered [dbl] a single number between 0 and 1 (possibly included)
 #'   representing the number of organ offered from the center in the
 #'   previous period of reference. Default is 0.
 #' @param state [chr] a name of available state, i.e. included in
@@ -27,7 +27,8 @@
 #' center('Padova', 'Veneto', 10)
 #' center('Padova', 'Veneto', 10, 0.8, 'Italy')
 #'
-center <- function(name, region, output = 0L, p_accept = NULL,
+#' padova <- center('Padova', 'Veneto')
+center <- function(name, region, offered = 0L, p_accept = NA,
                    state = 'italy'
 ) {
 
@@ -57,7 +58,8 @@ center <- function(name, region, output = 0L, p_accept = NULL,
   ## region
   assertive::assert_is_a_non_missing_nor_empty_string(region)
   ### region in state
-  if (!region %in% clumpr::regions[[stringr::str_to_lower(state)]]) stop(
+  if (!stringr::str_to_lower(region) %in%
+       clumpr::regions[[stringr::str_to_lower(state)]]) stop(
     paste0('Argument ', crayon::silver("region"), ' must be a region of ',
         crayon::green(stringr::str_to_title(state)), '.\n',
       '       It is "', crayon::red(region), '" which isn\'t.\n\n',
@@ -73,26 +75,27 @@ center <- function(name, region, output = 0L, p_accept = NULL,
   )
 
   ## p_accept
-  if (!is.null(p_accept)) {
+  if (is.null(p_accept) || !is.na(p_accept)) {
     assertive::assert_is_a_number(p_accept)
     assertive::assert_all_are_proportions(p_accept)
   }
 
-  ## output
-  assertive::assert_is_a_number(output)
-  if (output != as.integer(output)) stop(
-    glue('variable `output` must be an integer, it is: {output}.'),
+  ## offered
+  assertive::assert_is_a_number(offered)
+  if (offered != as.integer(offered)) stop(
+    glue('variable `offered` must be an integer, it is: {offered}.'),
     call. = FALSE
   )
-  assertive::assert_all_are_non_negative(output)
+  assertive::assert_all_are_non_negative(offered)
 
 
   # constructor ----------------------------------------------------------
 
   structure(.Data = c(center = name),
-    region   = region,
+    region   = stringr::str_to_lower(region),
     p_accept = p_accept,
-    output   = output,
+    offered  = as.integer(offered),
+    state    = stringr::str_to_lower(state),
     class    = 'center'
   )
 }
@@ -113,26 +116,29 @@ center <- function(name, region, output = 0L, p_accept = NULL,
 #' @export
 print.center <- function(x, ...) {
   cat_line('    ',
-      crayon::bold('Center          : '), crayon::blue(x[['center']]),
-      ' (', attr(x, 'region'), ')'
+      crayon::bold('Center           : '), crayon::blue(x[['center']]),
+      ' (', stringr::str_to_title(attr(x, 'region')), ' --- ',
+            stringr::str_to_title(attr(x, 'state')),
+      ')'
   )
 
-  if (is.null(attr(x, 'p_accept'))) {
+  acc_p <- get_p_accept(x)
+  if (is.na(acc_p)) {
     cat_line('    ',
-      crayon::bold('Acceptance rate : '), '<inherit from the region rate>'
+      crayon::bold('Acceptance rate  : '), '<inherit from the region rate>'
     )
-  } else if (attr(x, 'p_accept') == 0) {
+  } else if (acc_p == 0) {
     cat_line('    ',
-      crayon::bold('Acceptance rate : '), crayon::red(attr(x, 'p_accept'))
+      crayon::bold('Acceptance rate  : '), crayon::red(acc_p)
     )
   } else {
     cat_line('    ',
-      crayon::bold('Acceptance rate : '), crayon::green(attr(x, 'p_accept'))
+      crayon::bold('Acceptance rate  : '), crayon::green(acc_p)
     )
   }
 
   cat_line('    ',
-      crayon::bold('Organ surplus of: '), attr(x, 'output')
+      crayon::bold('Offered organs   : '), get_offered(x)
   )
 
   invisible(x)
