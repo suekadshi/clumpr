@@ -2,19 +2,32 @@ clumpr
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
-Last update: 2018-02-15
+[![Travis Build
+Status](https://travis-ci.org/UBESP-DCTV/clumpr.svg?branch=develop)](https://travis-ci.org/UBESP-DCTV/clumpr)
 
-Description
------------
+[![CRAN Status
+Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
 
-The `clumpr` package aims is to provide a toolbox of function for model, validate and visualize dynamics assessed by the "Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
+[![Coverage
+status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/develop/graph/badge.svg)](https://codecov.io/github/UBESP-DCTV/clumpr?branch=develop)
 
-The first implementation is focused on the lung-transplant centers management.
+**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in
+**R**
 
-Example
--------
+Last update: 2018-02-16
+
+## Description
+
+The `clumpr` package aims is to provide a toolbox of function for model,
+validate and visualize dynamics assessed by the “Protocollo Nazionale
+per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto” in
+Italy.
+
+The first implementation is focused on the lung-transplant centers
+management.
+
+## Example
 
 This is a basic example which shows you how it works:
 
@@ -22,8 +35,7 @@ This is a basic example which shows you how it works:
 # TODO
 ```
 
-Installation
-------------
+## Installation
 
 You can install viper from GitHub with:
 
@@ -32,12 +44,14 @@ You can install viper from GitHub with:
 devtools::install_github("UBESP-DCTV/clumpr")
 ```
 
-Bug reports
------------
+## Bug reports
 
-If you encounter a bug, please file a [reprex](https://github.com/tidyverse/reprex) (minimal reproducible example) to <https://github.com/UBESP-DCTV/clumpr/issues>
+If you encounter a bug, please file a
+[reprex](https://github.com/tidyverse/reprex) (minimal reproducible
+example) to <https://github.com/UBESP-DCTV/clumpr/issues>
 
-References
-----------
+## References
 
-**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto** ([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))
+**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i
+Programmi di Trapianto**
+([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))

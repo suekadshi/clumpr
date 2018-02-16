@@ -1,9 +1,18 @@
-# viper 0.0.0.9006
+# clumpr 0.0.0.9063
 
-* Added function `cat_line()` to `utils.R`
+* Added support for Codecov
+* Added support for Travis-CI
+* Added dependecy from `R (>= 3.2)`
+* Added tests for the constructor function `center()`;
+* Provided `print.center()` methods;
+* Created class `center` and its constructor function `center()`.
+
+# clumpr 0.0.0.9006
+
+* Added function `cat_line()` to `utils.R`;
 * Added `.onAttach`, `.onLoad` `.onUnload` to `zzz.R` to provide package
-  setup
-* Changed name in `clumper` according to "English" meanign
+  setup;
+* Changed name in `clumper` according to "English" meanign.
 
 # viper 0.0.0.9000
 

@@ -1,6 +1,6 @@
 Package: clumpr
 Type: Package
-Version: 0.0.0.9006
+Version: 0.0.0.9063
 Date: "`r Sys.Date()`"
 Title: Current transpLant sUrplus Management Protocol in R
 Description: The `clumpr` package aims is to provide a toolbox of function
@@ -26,15 +26,18 @@ BugReports: https://github.com/UBESP-DCTV/viper/issues
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
+RoxygenNote: 6.0.1
+Depends: R (>= 3.2)
+Imports: 
+    magrittr,
+    assertive,
+    crayon,
+    glue
 Suggests: 
     testthat,
     xml2,
     rvest,
     stringr,
     tibble,
-    dplyr
-RoxygenNote: 6.0.1
-Imports: 
-    magrittr,
-    assertive,
-    crayon
+    dplyr,
+    covr
