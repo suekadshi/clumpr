@@ -1,3 +1,7 @@
+# clumpr 0.0.2.0001
+
+* Organized `get_*()` in folder according to class
+
 # clumpr 0.0.1.00061
 
 * Fixed bug of `at_least_one()` which leaded to a wrong probability
