@@ -13,21 +13,6 @@ get_region <- function(x, ...) {
   UseMethod("get_region")
 }
 
-#' Get the center name
-#'
-#' This is a generic function aimed to access to the center name of an
-#' object
-#'
-#' @param x an object used to select a method.
-#' @param ... further arguments passed to or from other methods.
-#'
-#' @return The center name for the object \code{x}.
-#'
-#' @export
-get_center <- function(x, ...) {
-  UseMethod("get_center")
-}
-
 #' Get the probability of acceptance
 #'
 #' This is a generic function aimed to access (or compute) to the
@@ -139,4 +124,18 @@ get_initial_strip <- function(x, ...) {
 #' @export
 get_current_strip <- function(x, ...) {
   UseMethod("get_current_strip")
+}
+
+#' Get the current time details
+#'
+#' This is a generic function aimed to access to the \code{time_period}
+#' details of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{time_period} details for the object \code{x}.
+#' @export
+get_time <- function(x, ...) {
+  UseMethod("get_time")
 }

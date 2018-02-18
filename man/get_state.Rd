@@ -16,5 +16,5 @@ The state details for the object \code{x}.
 }
 \description{
 This is a generic function aimed to access to the state details of an
-object
+object.
 }

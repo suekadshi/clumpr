@@ -1,6 +1,6 @@
 Package: clumpr
 Type: Package
-Version: 0.0.2.0002
+Version: 0.0.2.0082
 Date: "`r Sys.Date()`"
 Title: Current transpLant sUrplus Management Protocol in R
 Description: The `clumpr` package aims is to provide a toolbox of function
@@ -14,6 +14,9 @@ Authors@R: c(
       role = c("aut", "cre")
     ),
     person("Ileana", "Baldi", email = "ileana.baldi@unipd.it",
+      role = c("aut")
+    ),
+    person("Marco", "Schiavon", email = "marcoschi79@yahoo.it",
       role = c("aut")
     ),
     person("Dario", "Gregori", email = "dario.gegori@unipd.it",

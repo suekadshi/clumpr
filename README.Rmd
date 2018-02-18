@@ -14,8 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis Build Status](https://travis-ci.org/UBESP-DCTV/clumpr.svg?branch=develop)](https://travis-ci.org/UBESP-DCTV/clumpr)
-[![Coverage status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/develop/graph/badge.svg)](https://codecov.io/github/UBESP-DCTV/clumpr?branch=develop)
+[![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
+[![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
 
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
@@ -52,6 +52,17 @@ lombardia <- region(set_centers(pavia, bergamo, milano), default_p = 0.2)
 lombardia
 get_centers(lombardia)
 
+# setup macroregions
+padova <- center('Padova', 'Veneto', 10, 0.9)
+veneto <- region(set_centers(padova))
+
+nitp <- macroregion('NITp', set_regions(lombardia, veneto),
+  initial_strip = c('lombardia',  'lombardia', 'veneto'))
+
+# show data
+nitp
+get_regions(nitp)
+get_centers(nitp)
 # TODO
 ```
 

@@ -18,7 +18,7 @@
 #' @param regions [lst] a list of objects of class \code{\link{regions}},
 #'        passed by \code{\link{set_regions}()}. Note: all the region in a
 #'        macroregion must be of the same state.
-#' @param base_strip [chr] e sequence of \code{\link{region}}s' names in the
+#' @param initial_strip [chr] e sequence of \code{\link{region}}s' names in the
 #'        \code{\link{macroregion}} representing the order in which organs
 #'        started to be distributed in the \code{\link{macroregion}} at the
 #'        beginning of the period. All the listed \code{\link{region}}s have
@@ -48,7 +48,10 @@ macroregion <- function(name,
 
   # input check ---------------------------------------------------------
 
-  ## centers
+  ## name
+  assertive::assert_is_a_non_missing_nor_empty_string(name)
+
+  ## regions
   if (!inherits(regions, 'set_regions')) stop(
     paste0('Argument ', crayon::silver("regions"), ' must be provide using ',
         crayon::green('set_regions()'), ', and it isn\'t.\n\n',
@@ -105,6 +108,27 @@ set_regions <- function(...) {
 
       '       Have you create all of them using ',
         crayon::silver('region()'), '?'
+    ),
+    call. = FALSE
+  )
+
+  regs <- purrr::map_chr(.dots, 'region')
+  if (length(regs) != length(unique(regs))) stop(
+    paste0(crayon::silver("Regions"), ' must be different',
+        ' and they aren\'t.\n\n',
+
+        '       Regions provided are: ',
+        paste(unique(regs),
+              paste0(
+                '(#',
+                purrr::map_chr(table(regs),
+                  ~ if (. == 1) crayon::green(.) else crayon::red(.)
+                ),
+                ')'
+              ),
+              collapse = ', '
+        ),
+        '.'
     ),
     call. = FALSE
   )
@@ -195,14 +219,21 @@ print.macroregion <- function(x, ...) {
 
   cat_line('    ',
       crayon::bold('Initail strip   : '),
-      crayon::blue(get_initial_strip(x))
+      crayon::blue(get_initial_strip(x) %>% stringr::str_to_title()) %>%
+        paste(collapse = ' --> ')
   )
 
   cat_line('    ',
       crayon::bold('Current strip   : '),
-      crayon::blue(get_current_strip(x)) %>%
+      crayon::blue(get_current_strip(x) %>% stringr::str_to_title()) %>%
         paste(collapse = ' --> ')
   )
+
+  cat_line('    ',
+      crayon::bold('Time period     : '),
+      crayon::blue(get_time(x))
+  )
+
 
   invisible(x)
 }

@@ -102,6 +102,27 @@ set_centers <- function(...) {
     call. = FALSE
   )
 
+  cntrs <- purrr::map_chr(.dots, 'center')
+  if (length(cntrs) != length(unique(cntrs))) stop(
+    paste0(crayon::silver("Centers"), ' must be different',
+        ' and they aren\'t.\n\n',
+
+        '       Centers provided are: ',
+        paste(unique(cntrs),
+              paste0(
+                '(#',
+                purrr::map_chr(table(cntrs),
+                  ~ if (. == 1) crayon::green(.) else crayon::red(.)
+                ),
+                ')'
+              ),
+              collapse = ', '), '.'
+    ),
+    call. = FALSE
+  )
+
+
+
   regs <- purrr::map_chr(.dots, get_region) %>% unique
   if (length(regs) != 1L) stop(
     paste0('All ', crayon::silver("centers"), ' must be in the same region',

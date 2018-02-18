@@ -1,3 +1,25 @@
+#' @describeIn macroregion function to access to all the centers in a
+#'             macroregion.
+#' @inheritParams get_centers
+#' @export
+#' @examples
+#' pavia   <- center('Pavia',   'Lombardia', offered = 5, p_accept = 0.6)
+#' bergamo <- center('Bergamo', 'Lombardia', 8)
+#' milano  <- center('Milano',  'Lombardia', 10, 0.8)
+#' lombardia <- region(set_centers(pavia, bergamo, milano), default_p = 0.7)
+#'
+#' padova <- center('Padova', 'Veneto', 8, 0.7)
+#' veneto <- region(set_centers(padova))
+#'
+#' nitp <- macroregion('NITp',
+#'   regions = set_regions(lombardia, veneto),
+#'   initial_strip = c('lombardia', 'lombardia', 'veneto')
+#' )
+#' get_centers(nitp)
+get_centers.macroregion <- function(x, ...) {
+  attr(x, 'regions') %>% purrr::map(attr, 'centers')
+}
+
 #' @describeIn macroregion wrapper function to access to the detail
 #'             "regions".
 #' @inheritParams get_regions
@@ -18,16 +40,6 @@ get_state.macroregion <- function(x, ...) {
   get_regions(x)[[1]] %>% get_state
 }
 
-#' @describeIn macroregion function to access to all the centers in a
-#'             macroregion.
-#' @inheritParams get_centers
-#' @export
-#' @examples
-#' get_centers(nitp)
-get_centers.macroregion <- function(x, ...) {
-  attr(x, 'regions') %>% purrr::map(attr, 'centers')
-}
-
 #' @describeIn macroregion compute the probability that at least one center
 #'             in any region of the macroregion accept an offered organ.
 #' @inheritParams get_p_accept
@@ -43,7 +55,7 @@ get_centers.macroregion <- function(x, ...) {
 #'
 #' nitp <- macroregion('NITp',
 #'   regions = set_regions(lombardia, veneto),
-#'   base_strip = c('lombardia', 'lombardia', 'veneto')
+#'   initial_strip = c('lombardia', 'lombardia', 'veneto')
 #' )
 #' get_p_accept(nitp)
 get_p_accept.macroregion <- function(x, ...) {
@@ -80,3 +92,13 @@ get_current_strip.macroregion <- function(x, ...) {
   attr(x, 'current_strip')
 }
 
+
+#' @describeIn macroregion wrapper function to access to the detail
+#'             "time_period".
+#' @inheritParams get_time
+#' @export
+#' @examples
+#' get_time(nitp)
+get_time.macroregion <- function(x, ...) {
+  attr(x, 'time_period')
+}

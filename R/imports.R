@@ -14,3 +14,7 @@
 #'
 #' #>  1 + 1 = 2
 NULL
+
+
+#' @importFrom stats setNames
+NULL

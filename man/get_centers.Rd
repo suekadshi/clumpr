@@ -12,9 +12,9 @@ get_centers(x, ...)
 \item{...}{further arguments passed to or from other methods.}
 }
 \value{
-The state details for the object \code{x}.
+The \code{centers} details for the object \code{x}.
 }
 \description{
-This is a generic function aimed to access to the centers details of an
-object
+This is a generic function aimed to access to the \code{centers} details
+of an object.
 }
