@@ -1,16 +1,31 @@
-#' Get the region details
+#' Get the region name
 #'
-#' This is a generic function aimed to access to the region details of an
+#' This is a generic function aimed to access to the region name of an
 #' object
 #'
 #' @param x an object used to select a method.
 #' @param ... further arguments passed to or from other methods.
 #'
-#' @return The region details for the object \code{x}.
+#' @return The region name for the object \code{x}.
 #'
 #' @export
 get_region <- function(x, ...) {
   UseMethod("get_region")
+}
+
+#' Get the center name
+#'
+#' This is a generic function aimed to access to the center name of an
+#' object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The center name for the object \code{x}.
+#'
+#' @export
+get_center <- function(x, ...) {
+  UseMethod("get_center")
 }
 
 #' Get the probability of acceptance
@@ -58,7 +73,7 @@ get_p_default <- function(x, ...) {
 #' Get the state details
 #'
 #' This is a generic function aimed to access to the state details of an
-#' object
+#' object.
 #'
 #' @param x an object used to select a method.
 #' @param ... further arguments passed to or from other methods.
@@ -71,14 +86,57 @@ get_state <- function(x, ...) {
 
 #' Get the centers details
 #'
-#' This is a generic function aimed to access to the centers details of an
-#' object
+#' This is a generic function aimed to access to the \code{centers} details
+#' of an object.
 #'
 #' @param x an object used to select a method.
 #' @param ... further arguments passed to or from other methods.
 #'
-#' @return The state details for the object \code{x}.
+#' @return The \code{centers} details for the object \code{x}.
 #' @export
 get_centers <- function(x, ...) {
   UseMethod("get_centers")
+}
+
+#' Get the regions details
+#'
+#' This is a generic function aimed to access to the \code{regions} details
+#' of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{regions} details for the object \code{x}.
+#' @export
+get_regions <- function(x, ...) {
+  UseMethod("get_regions")
+}
+
+#' Get the initial strip details
+#'
+#' This is a generic function aimed to access to the \code{initial_strip}
+#' details of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{initial_strip} details for the object \code{x}.
+#' @export
+get_initial_strip <- function(x, ...) {
+  UseMethod("get_initial_strip")
+}
+
+
+#' Get the current strip details
+#'
+#' This is a generic function aimed to access to the \code{current_strip}
+#' details of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{current_strip} details for the object \code{x}.
+#' @export
+get_current_strip <- function(x, ...) {
+  UseMethod("get_current_strip")
 }

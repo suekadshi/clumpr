@@ -2,6 +2,7 @@ context("test-get_region.R")
 
 test_that("methods get_region return correct output", {
   center_test <- center('Padova', 'Veneto')
+  region_test <- region(set_centers(center_test))
   expect_equal(get_region(center_test), 'veneto')
 })
 

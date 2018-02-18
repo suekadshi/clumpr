@@ -125,7 +125,12 @@ set_centers <- function(...) {
   )
 
 
-  structure(.dots, class = 'set_centers')
+  structure(
+    setNames(.dots,
+      purrr::map_chr(.dots, 'center') %>% stringr::str_to_lower()
+    ),
+    class = 'set_centers'
+  )
 }
 
 
@@ -182,24 +187,6 @@ print.region <- function(x, ...) {
       crayon::blue(get_offered(x)),
     ' (from all the centers)'
   )
-
-  # if (is.null(attr(x, 'p_accept'))) {
-  #   cat_line('    ',
-  #     crayon::bold('Acceptance rate : '), '<inherit from the region rate>'
-  #   )
-  # } else if (attr(x, 'p_accept') == 0) {
-  #   cat_line('    ',
-  #     crayon::bold('Acceptance rate : '), crayon::red(attr(x, 'p_accept'))
-  #   )
-  # } else {
-  #   cat_line('    ',
-  #     crayon::bold('Acceptance rate : '), crayon::green(attr(x, 'p_accept'))
-  #   )
-  # }
-  #
-  # cat_line('    ',
-  #     crayon::bold('Organ surplus of: '), attr(x, 'output')
-  # )
 
   invisible(x)
 }
