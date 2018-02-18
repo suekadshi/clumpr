@@ -1,23 +1,27 @@
+# clumpr 0.0.3.001
+
+* Fixed mention to `viper` in `README`.
+
 # clumpr 0.0.2.0082
 
-* Added MS to authors
-* Updated badges for `structures` branch
-* Added tests for correctness of output in macroregions
+* Added MS to authors;;
+* Updated badges for `structures` branch;
+* Added tests for correctness of output in macroregions;
 * Added tests for `get_regions`, `get_centers`, `p_accept`, `set_regions`
-  mehods for macroregions
-* Added tests for `print` method for `macroregion`s
-* Updatad `README`'s example
+  mehods for macroregions;
+* Added tests for `print` method for `macroregion`s;
+* Updatad `README`'s example;
 * Added tests and check for unique region in a macroregion and unique
-  centers on a region
+  centers on a region;
 * Added `get_center`, `get_region`, `get_state`, `get_p_accept`,
   `get_offered`, `get_initial_strip` ,`get_current_strip`, `get_time`
-  methods for `macroregion` (and generic function when needed).
-* Added `print()` method for `macroregion` and `det_macroregion`
-* Added `macroregion()` to create object of class `macroregion`
+  methods for `macroregion` (and generic function when needed);
+* Added `print()` method for `macroregion` and `det_macroregion`;
+* Added `macroregion()` to create object of class `macroregion`.
 
 # clumpr 0.0.2.0002
 
-* Organized `get_*()` in folder according to class
+* Organized `get_*()` in folder according to class.
 
 # clumpr 0.0.1.00061
 

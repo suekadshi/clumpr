@@ -1,6 +1,6 @@
 Package: clumpr
 Type: Package
-Version: 0.0.2.0082
+Version: 0.0.3.0001
 Date: "`r Sys.Date()`"
 Title: Current transpLant sUrplus Management Protocol in R
 Description: The `clumpr` package aims is to provide a toolbox of function

@@ -109,7 +109,7 @@ get_centers(nitp)
 
 ## Installation
 
-You can install viper from GitHub with:
+You can install clumpr from GitHub with:
 
 ``` r
 # install.packages("devtools")
