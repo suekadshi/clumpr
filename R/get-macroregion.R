@@ -100,5 +100,5 @@ get_current_strip.macroregion <- function(x, ...) {
 #' @examples
 #' get_time(nitp)
 get_time.macroregion <- function(x, ...) {
-  attr(x, 'time_period')
+  attr(x, 'current_time')
 }

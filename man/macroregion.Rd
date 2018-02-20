@@ -48,7 +48,7 @@ macroregion must be of the same state.}
 \code{\link{macroregion}} representing the order in which organs
 started to be distributed in the \code{\link{macroregion}} at the
 beginning of the period. All the listed \code{\link{region}}s have
-to be included also in the \code{region} field. Repetition are
+to be included also in the \code{regions} field. Repetition are
 admitted as well as exculsions.}
 }
 \value{

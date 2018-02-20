@@ -40,6 +40,15 @@ get_state.region <- function(x, ...) {
   attr(x, 'state')
 }
 
+#' @describeIn region wrapper function to access to the detail "state".
+#' @inheritParams get_state
+#' @export
+#' @examples
+#' get_state(lombardia) # italy
+get_region.region <- function(x, ...) {
+  x[['region']]
+}
+
 #' @describeIn region wrapper function to access to the detail "centers".
 #' @inheritParams get_centers
 #' @export

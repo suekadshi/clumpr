@@ -1,5 +1,10 @@
-# clumpr 0.0.3.001
+# clumpr 0.0.3.007
 
+* Changed `time_period` to `current_time` in `macroregion` details and in
+  the corresponding `get_time()` method;
+* Added `get_region()` method for class `region`;
+* Including `state` into regions' and macroregions' properties;
+* Fixed an inconsistency in `center()`;
 * Fixed mention to `viper` in `README`.
 
 # clumpr 0.0.2.0082
