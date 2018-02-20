@@ -93,8 +93,8 @@ center <- function(name, region, offered = 0L, p_accept = NA,
 
   structure(.Data = c(center = name),
     region   = stringr::str_to_lower(region),
-    p_accept = p_accept,
     offered  = as.integer(offered),
+    p_accept = p_accept,
     state    = stringr::str_to_lower(state),
     class    = 'center'
   )
