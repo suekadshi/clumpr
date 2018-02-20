@@ -64,6 +64,7 @@ region <- function(centers, default_p = 1) {
     default_p       = default_p,
     acceptance_rate = at_least_one(p_accept_centers),
     offered         = offered,
+    state           = get_state(centers[[1L]]),
     class           = 'region'
   )
 }

@@ -37,8 +37,7 @@ get_p_default.region <- function(x, ...) {
 #' @examples
 #' get_state(lombardia) # italy
 get_state.region <- function(x, ...) {
-  get_centers(x)[[1]] %>%
-    get_state()
+  attr(x, 'state')
 }
 
 #' @describeIn region wrapper function to access to the detail "centers".
