@@ -6,6 +6,8 @@
 \alias{get_p_default.region}
 \alias{get_state.region}
 \alias{get_region.region}
+\alias{get_regions.region}
+\alias{get_all_region.region}
 \alias{get_centers.region}
 \alias{region}
 \alias{print.region}
@@ -20,6 +22,10 @@
 \method{get_state}{region}(x, ...)
 
 \method{get_region}{region}(x, ...)
+
+\method{get_regions}{region}(x, ...)
+
+\method{get_all_region}{region}(x, ...)
 
 \method{get_centers}{region}(x, ...)
 
@@ -62,6 +68,10 @@ in the region accept an offered organ.
 
 \item \code{get_region}: wrapper function to access to the detail "state".
 
+\item \code{get_regions}: wrapper function to access to the region itself.
+
+\item \code{get_all_region}: wrapper function to access to the detail "region".
+
 \item \code{get_centers}: wrapper function to access to the detail "centers".
 
 \item \code{print}: nice (and coloured, if supported) print method.
@@ -78,6 +88,8 @@ get_offered(lombardia)
 get_p_default(lombardia)
 get_state(lombardia) # italy
 get_state(lombardia) # italy
+get_regions(lombardia)
+get_all_region(lombardia) # lombardia
 get_centers(lombardia)
 pavia   <- center('Pavia',   'Lombardia', 10, 0.8)
 bergamo <- center('Bergamo', 'Lombardia', 10, 0.5)

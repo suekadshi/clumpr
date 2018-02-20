@@ -30,6 +30,17 @@ get_regions.macroregion <- function(x, ...) {
   attr(x, 'regions')
 }
 
+#' @describeIn macroregion wrapper function to access to the all the names
+#'             of reagions appear in the detail "regions".
+#' @inheritParams get_all_region
+#' @export
+#' @examples
+#' get_all_region(nitp)
+get_all_region.macroregion <- function(x, ...) {
+  get_regions(x) %>% purrr::map_chr('region')
+}
+
+
 #' @describeIn macroregion wrapper function to access to the name of the
 #'             state
 #' @inheritParams get_state

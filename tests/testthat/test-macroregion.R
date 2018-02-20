@@ -24,10 +24,13 @@ test_that("gets expected class", {
 
 test_that("throws error on wrong input", {
   expect_error(macroregion(set_regions(veneto)),
-    "is not of class 'character'"
+    "not inherit from the class character"
   )
   expect_error(macroregion(1, set_regions(veneto)),
-    "is not of class 'character'"
+    "not inherit from the class character"
+  )
+  expect_error(macroregion(lombardia, set_regions(lombardia)),
+    'not inherit from the class character'
   )
 })
 

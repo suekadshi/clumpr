@@ -49,6 +49,7 @@ macroregion <- function(name,
   # input check ---------------------------------------------------------
 
   ## name
+  assertive::assert_is_inherited_from(name, 'character')
   assertive::assert_is_a_non_missing_nor_empty_string(name)
 
   ## regions

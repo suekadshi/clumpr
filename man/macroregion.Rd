@@ -3,6 +3,7 @@
 \name{get_centers.macroregion}
 \alias{get_centers.macroregion}
 \alias{get_regions.macroregion}
+\alias{get_all_region.macroregion}
 \alias{get_state.macroregion}
 \alias{get_p_accept.macroregion}
 \alias{get_offered.macroregion}
@@ -16,6 +17,8 @@
 \method{get_centers}{macroregion}(x, ...)
 
 \method{get_regions}{macroregion}(x, ...)
+
+\method{get_all_region}{macroregion}(x, ...)
 
 \method{get_state}{macroregion}(x, ...)
 
@@ -66,6 +69,9 @@ macroregion.
 \item \code{get_regions}: wrapper function to access to the detail
 "regions".
 
+\item \code{get_all_region}: wrapper function to access to the all the names
+of reagions appear in the detail "regions".
+
 \item \code{get_state}: wrapper function to access to the name of the
 state
 
@@ -113,6 +119,7 @@ nitp <- macroregion('NITp',
 )
 get_centers(nitp)
 get_regions(nitp)
+get_all_region(nitp)
 get_state(nitp) # "italy"
 pavia   <- center('Pavia',   'Lombardia', offered = 5, p_accept = 0.6)
 bergamo <- center('Bergamo', 'Lombardia', 8)

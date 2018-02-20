@@ -49,6 +49,24 @@ get_region.region <- function(x, ...) {
   x[['region']]
 }
 
+#' @describeIn region wrapper function to access to the region itself.
+#' @inheritParams get_regions
+#' @export
+#' @examples
+#' get_regions(lombardia)
+get_regions.region <- function(x, ...) {
+  x
+}
+
+#' @describeIn region wrapper function to access to the detail "region".
+#' @inheritParams get_all_region
+#' @export
+#' @examples
+#' get_all_region(lombardia) # lombardia
+get_all_region.region <- function(x, ...) {
+  x[['region']]
+}
+
 #' @describeIn region wrapper function to access to the detail "centers".
 #' @inheritParams get_centers
 #' @export

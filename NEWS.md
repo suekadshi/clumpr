@@ -1,8 +1,24 @@
-# clumpr 0.0.3.007
+# clumpr 0.0.3.043
 
+* Added `get_p_accept()` method for `macroarea`;
+* Added `get_*_strip()` (* = current or initial) generic funcitons and 
+  methods for `macroarea`;
+* Added `get_*_time()` (* = initial, current or final) generic and methods
+  for `macroarea`;
+* Added utility function `unlisit_1` to estract list components from a list
+  vithout losing attributes (as happen with `unlist()`);
+* Added `is_macroregion` function to check for inherit `macroregion` class;
+* Added `get_macroregion()` generic function and method for `macroarea`;
+* Added tests for `macroarea` and `set_macroregions`;
+* Added `get_all_region` generic function and methods for `region`s,
+  `macroregion`s and `set_macroregion`s, to access to the name of all the
+  regions into the object;
+* Added `get_regions` method for `region`s (identity function);
+* Added `macroarea()` and `set_macroregions()`;
 * Changed `time_period` to `current_time` in `macroregion` details and in
   the corresponding `get_time()` method;
 * Added `get_region()` method for class `region`;
+* Added `get_state` method for `macroarea`;
 * Including `state` into regions' and macroregions' properties;
 * Fixed an inconsistency in `center()`;
 * Fixed mention to `viper` in `README`.
