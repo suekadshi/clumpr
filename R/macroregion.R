@@ -75,6 +75,7 @@ macroregion <- function(name,
     initial_strip   = initial_strip,
     current_strip   = initial_strip,
     time_period     = 0L,
+    state           = get_state(regions[[1L]]),
     class           = 'macroregion'
   )
 }

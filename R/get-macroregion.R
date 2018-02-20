@@ -37,7 +37,7 @@ get_regions.macroregion <- function(x, ...) {
 #' @examples
 #' get_state(nitp) # "italy"
 get_state.macroregion <- function(x, ...) {
-  get_regions(x)[[1]] %>% get_state
+  attr(x, 'state')
 }
 
 #' @describeIn macroregion compute the probability that at least one center
