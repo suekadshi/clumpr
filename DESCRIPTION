@@ -36,7 +36,8 @@ Imports:
     assertive,
     crayon,
     glue,
-    purrr
+    purrr,
+    rlang
 Suggests: 
     testthat,
     xml2,

@@ -1,4 +1,4 @@
-#' @describeIn set_macroregion wrapper function to access to the all the
+#' @describeIn set_macroregions wrapper function to access to the all the
 #'             names of reagions appear in the `set_macroregion`,
 #'             recursively.
 #' @inheritParams get_all_region
