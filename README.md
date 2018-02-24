@@ -13,7 +13,7 @@ Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.o
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in
 **R**
 
-Last update: 2018-02-18
+Last update: 2018-02-24
 
 ## Description
 
@@ -67,7 +67,7 @@ nitp <- macroregion('NITp', set_regions(lombardia, veneto),
 
 # show data
 nitp
-#>     Macroregion : Nitp (Italy)
+#>     Macroregion : NITp (Italy)
 #>     Regions     : Lombardia; Veneto (#2)
 #>     Centers     : Pavia, Bergamo, Milano; Padova (#4)
 #>     Acceptance rate : 0.992 (at least one center in some region)
@@ -104,6 +104,15 @@ get_centers(nitp)
 #>     Center           : Padova (Veneto --- Italy)
 #>     Acceptance rate  : 0.9
 #>     Offered organs   : 10
+
+# add another region and setup a macroarea
+torino   <- center('Torino', 'Piemonte', 7, 0.6)
+piemonte <- region(set_centers(torino))
+
+nord <- macroarea('Macroarea Nord',
+  macroregions = set_macroregions(piemonte, nitp)
+)
+
 # TODO
 ```
 

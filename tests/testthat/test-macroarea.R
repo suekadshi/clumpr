@@ -62,44 +62,49 @@ test_that("correct known output", {
 
 
 
-# test_that('print works for set_center', {
-#   nitp <- macroregion('NITp', set_regions(lombardia, veneto))
-#   expect_output(print(get_centers(nitp)), 'Center')
-#   expect_output(print(get_centers(nitp)), 'lombardia')
-#   expect_is(print(get_centers(nitp)), 'list')
-#   expect_is(print(get_centers(nitp))[[1]], 'set_centers')
-# })
-#
-# test_that('print works for set_regions', {
-#   expect_output(print(set_regions(lombardia, veneto)), 'Region')
-#   expect_is(print(set_regions(lombardia, veneto)), 'set_regions')
-# })
-#
-# test_that('print works properly', {
-#   nitp <- macroregion('NITp', set_regions(lombardia, veneto))
-#   expect_output(print(nitp), 'Macroregion')
-#   expect_output(print(nitp), 'Time period')
-#   expect_output(print(nitp), 'Lombardia')
-#   expect_is(print(nitp), 'macroregion')
-#
-#   test_macro <- macroregion('test', set_regions(lombardia))
-#   expect_output(print(test_macro), '(at least one)')
-# })
-#
-#
-# test_that('pass correct default', {
-#   nitp <- macroregion('NITp', set_regions(lombardia, veneto))
-#   expect_equivalent(get_initial_strip(nitp), c('lombardia', 'veneto'))
-#   expect_equal(
-#     get_p_accept(nitp),
-#     at_least_one(get_p_accept(lombardia), get_p_accept(veneto))
-#   )
-# })
-#
-# test_that('zero p_accept print propery', {
-#   center_1 <- center('test_c_1', 'friuli-venezia giulia', 10)
-#   center_2 <- center('test_c_2', 'friuli-venezia giulia', 5)
-#   region_1 <- region(set_centers(center_1, center_2), default_p = 0)
-#   macro_1  <- macroregion('test_m_1', set_regions(region_1))
-#   expect_output(print(macro_1), 'rate : 0')
-# })
+test_that('print works for get_center', {
+  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  expect_output(print(get_centers(nord)), 'piemonte')
+  expect_output(print(get_centers(nitp)), 'Pavia')
+  expect_is(print(get_centers(nord)), 'list')
+  expect_is(print(get_centers(nord))[[1]], 'set_centers')
+  expect_is(print(get_centers(nord))[[2]], 'set_centers')
+})
+
+test_that('print works for set_macroregions', {
+  expect_output(print(set_macroregions(piemonte, nitp)), 'Region')
+  expect_output(print(set_macroregions(piemonte, nitp)), 'Macroregion')
+  expect_is(print(set_macroregions(piemonte, nitp)), 'set_macroregions')
+})
+
+test_that('print works properly', {
+  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  expect_output(print(nord), 'Macroarea')
+  expect_output(print(nord), 'Macroregions')
+  expect_output(print(nord), 'Acceptance')
+  expect_output(print(nord), 'Offered')
+  expect_output(print(nord), 'Time period')
+  expect_output(print(nord), 'Lombardia')
+  expect_is(print(nord), 'macroarea')
+
+  test_1 <- center('uno', 'veneto', p_accept = 0) %>%
+    set_centers() %>%
+    region() %>% set_macroregions() %>%
+    macroarea(name = 'macro_1')
+  expect_output(print(test_1), 'rate : 0')
+
+  test_area1 <- macroarea('Macroarea Nord', set_macroregions(nitp))
+  test_area2 <- macroarea('Macroarea Nord', set_macroregions(piemonte))
+  expect_is(print(test_area1), 'macroarea')
+  expect_is(print(test_area2), 'macroarea')
+})
+
+
+test_that('pass correct default', {
+  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  expect_equivalent(get_initial_strip(nord),
+    c('piemonte', 'lombardia', 'veneto')
+  )
+  expect_equal(get_initial_time(nord), 0L)
+  expect_equal(get_final_time(nord), Inf)
+})

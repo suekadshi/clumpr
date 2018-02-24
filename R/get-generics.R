@@ -1,3 +1,17 @@
+#' Get the centers name
+#'
+#' This is a generic function aimed to access to the \code{center} name of a
+#' center.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{center} name for the object \code{x}.
+#' @export
+get_center <- function(x, ...) {
+  UseMethod("get_center")
+}
+
 #' Get the region name
 #'
 #' This is a generic function aimed to access to the region name of an

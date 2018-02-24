@@ -3,7 +3,9 @@
 \name{get_macroregions.macroarea}
 \alias{get_macroregions.macroarea}
 \alias{get_regions.macroarea}
+\alias{get_all_region.macroarea}
 \alias{get_state.macroarea}
+\alias{get_centers.macroarea}
 \alias{get_p_accept.macroarea}
 \alias{get_offered.macroarea}
 \alias{get_initial_strip.macroarea}
@@ -12,13 +14,18 @@
 \alias{get_time.macroarea}
 \alias{get_final_time.macroarea}
 \alias{macroarea}
+\alias{print.macroarea}
 \title{Constructor for object of class \code{macroarea}}
 \usage{
 \method{get_macroregions}{macroarea}(x, ...)
 
 \method{get_regions}{macroarea}(x, ...)
 
+\method{get_all_region}{macroarea}(x, ...)
+
 \method{get_state}{macroarea}(x, ...)
+
+\method{get_centers}{macroarea}(x, ...)
 
 \method{get_p_accept}{macroarea}(x, ...)
 
@@ -36,6 +43,8 @@
 
 macroarea(name, macroregions, initial_strip = get_all_region(macroregions),
   initial_time = 0L, final_time = Inf)
+
+\method{print}{macroarea}(x, ...)
 }
 \arguments{
 \item{x}{an object used to select a method.}
@@ -84,8 +93,15 @@ detail.
 \item \code{get_regions}: wrapper function to access to all the reagions in
 macroarea
 
+\item \code{get_all_region}: wrapper function to access to the all the
+names of reagions appear in the `set_macroregion`,
+recursively.
+
 \item \code{get_state}: wrapper function to access to the name of the
 state
+
+\item \code{get_centers}: wrapper function to access to all the centers of
+a macroarea
 
 \item \code{get_p_accept}: compute the probability that at least one center
 in any region of the macroarea accept an offered organ.
@@ -107,6 +123,8 @@ in any region of the macroarea accept an offered organ.
 
 \item \code{get_final_time}: wrapper function to access to the detail
 "final_time".
+
+\item \code{print}: nice (and coloured, if supported) print method.
 }}
 
 \note{
@@ -116,9 +134,34 @@ Even if improbable, a \code{\link{macroarea}} can be composed by a single
       \code{\link{center}}
 }
 \examples{
+pavia   <- center('Pavia',   'Lombardia', offered = 5, p_accept = 0.6)
+pavia
+
+bergamo <- center('Bergamo', 'Lombardia', 8)
+milano  <- center('Milano',  'Lombardia', 10, 0.8)
+
+lombardia <- region(set_centers(pavia, bergamo, milano), default_p = 0.7)
+lombardia
+
+padova <- center('Padova', 'Veneto', 8, 0.7)
+veneto <- region(set_centers(padova))
+
+nitp <- macroregion('NITp', regions = set_regions(lombardia, veneto),
+  initial_strip = c('lombardia', 'lombardia', 'veneto')
+)
+nitp
+
+torino   <- center('Torino', 'Piemonte', 7, 0.6)
+piemonte <- region(set_centers(torino))
+
+nord <- macroarea('Macroarea Nord',
+  macroregions = set_macroregions(piemonte, nitp)
+)
 get_macroregions(nord)
 get_regions(nord)
+get_all_region(nord)
 get_state(nord) # "italy"
+get_regions(nord) # "italy"
 get_p_accept(nord)
 get_offered(nord)
 get_initial_strip(nord)
@@ -146,8 +189,8 @@ nitp
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-macro_nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Macroarea Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
-# macro_nord
+nord
 }

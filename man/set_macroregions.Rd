@@ -3,11 +3,14 @@
 \name{get_all_region.set_macroregions}
 \alias{get_all_region.set_macroregions}
 \alias{set_macroregions}
+\alias{print.set_macroregions}
 \title{List of regions/macroregion creator}
 \usage{
 \method{get_all_region}{set_macroregions}(x, ...)
 
 set_macroregions(...)
+
+\method{print}{set_macroregions}(x, ...)
 }
 \arguments{
 \item{x}{an object used to select a method.}
@@ -29,10 +32,11 @@ create \code{\link{macroarea}} objects.
 \item \code{get_all_region}: wrapper function to access to the all the
 names of reagions appear in the `set_macroregion`,
 recursively.
+
+\item \code{print}: nice (and coloured, if supported) print method.
 }}
 
 \examples{
-get_all_region(set_region(piemonte, nitp))
 pavia  <- center('Pavia',  'Lombardia')
 milano <- center('Milano', 'Lombardia')
 lombardia <- region(set_centers(pavia, milano))
@@ -40,7 +44,20 @@ lombardia <- region(set_centers(pavia, milano))
 padova <- center('Padova', 'Veneto', 8, 0.7)
 veneto <- region(set_centers(padova))
 
-nitp <- macroregion(set_regions(lombardia, veneto))
+nitp <- macroregion('NITp', set_regions(lombardia, veneto))
+
+torino   <- center('Torino', 'Piemonte', 7, 0.6)
+piemonte <- region(set_centers(torino))
+
+get_all_region(set_macroregions(piemonte, nitp))
+pavia  <- center('Pavia',  'Lombardia')
+milano <- center('Milano', 'Lombardia')
+lombardia <- region(set_centers(pavia, milano))
+
+padova <- center('Padova', 'Veneto', 8, 0.7)
+veneto <- region(set_centers(padova))
+
+nitp <- macroregion('NITp', set_regions(lombardia, veneto))
 
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))

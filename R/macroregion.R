@@ -173,7 +173,7 @@ print.set_regions <- function(x, ...) {
 print.macroregion <- function(x, ...) {
   cat_line('    ',
       crayon::bold('Macroregion : '),
-      crayon::blue(stringr::str_to_title(x[[1]])),
+      crayon::blue(str_to_title_if_needed(x[[1]])),
       ' (', stringr::str_to_title(get_state(x)), ')'
   )
 

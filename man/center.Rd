@@ -3,6 +3,7 @@
 \name{center}
 \alias{center}
 \alias{print.center}
+\alias{get_center.center}
 \alias{get_region.center}
 \alias{get_p_accept.center}
 \alias{get_offered.center}
@@ -12,6 +13,8 @@
 center(name, region, offered = 0L, p_accept = NA, state = "italy")
 
 \method{print}{center}(x, ...)
+
+\method{get_center}{center}(x, ...)
 
 \method{get_region}{center}(x, ...)
 
@@ -55,6 +58,8 @@ homonymous class.
 \itemize{
 \item \code{print}: nice (and coloured, if supported) print method.
 
+\item \code{get_center}: wrapper function to access to the center's name.
+
 \item \code{get_region}: wrapper function to access to the detail "region".
 
 \item \code{get_p_accept}: wrapper function to access to the detail "p_accept".
@@ -71,6 +76,7 @@ center('Padova', 'Veneto', 10)
 center('Padova', 'Veneto', 10, 0.8, 'Italy')
 
 padova <- center('Padova', 'Veneto')
+get_center(padova) # Padova
 get_region(padova) # veneto
 get_p_accept(padova)
 get_offered(padova)

@@ -4,10 +4,21 @@
 #' @inheritParams get_all_region
 #' @export
 #' @examples
-#' get_all_region(set_region(piemonte, nitp))
+#' pavia  <- center('Pavia',  'Lombardia')
+#' milano <- center('Milano', 'Lombardia')
+#' lombardia <- region(set_centers(pavia, milano))
+#'
+#' padova <- center('Padova', 'Veneto', 8, 0.7)
+#' veneto <- region(set_centers(padova))
+#'
+#' nitp <- macroregion('NITp', set_regions(lombardia, veneto))
+#'
+#' torino   <- center('Torino', 'Piemonte', 7, 0.6)
+#' piemonte <- region(set_centers(torino))
+#'
+#' get_all_region(set_macroregions(piemonte, nitp))
 get_all_region.set_macroregions <- function(x, ...) {
-  x %>%
-    purrr::map(get_all_region) %>%
+    purrr::map(x, get_all_region) %>%
     unlist %>%
     unname
 }

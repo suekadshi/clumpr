@@ -1,3 +1,23 @@
+#' @describeIn center wrapper function to access to the center's name.
+#' @inheritParams get_center
+#' @export
+#' @examples
+#' get_center(padova) # Padova
+get_center.center <- function(x, ...) {
+  x[[1L]]
+}
+
+#' @describeIn set_centers wrapper function to access to the centers' names.
+#' @inheritParams get_center
+#' @export
+#' @examples
+#' pavia  <- center('Pavia',  'Lombardia')
+#' milano <- center('Milano', 'Lombardia')
+#' get_center(set_centers(pavia, milano)) # Pavia, Milano
+get_center.set_centers <- function(x, ...) {
+  purrr::map_chr(x, get_center)
+}
+
 #' @describeIn center wrapper function to access to the detail "region".
 #' @inheritParams get_region
 #' @export

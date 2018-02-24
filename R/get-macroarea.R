@@ -3,6 +3,29 @@
 #' @inheritParams get_macroregions
 #' @export
 #' @examples
+#' pavia   <- center('Pavia',   'Lombardia', offered = 5, p_accept = 0.6)
+#' pavia
+#'
+#' bergamo <- center('Bergamo', 'Lombardia', 8)
+#' milano  <- center('Milano',  'Lombardia', 10, 0.8)
+#'
+#' lombardia <- region(set_centers(pavia, bergamo, milano), default_p = 0.7)
+#' lombardia
+#'
+#' padova <- center('Padova', 'Veneto', 8, 0.7)
+#' veneto <- region(set_centers(padova))
+#'
+#' nitp <- macroregion('NITp', regions = set_regions(lombardia, veneto),
+#'   initial_strip = c('lombardia', 'lombardia', 'veneto')
+#' )
+#' nitp
+#'
+#' torino   <- center('Torino', 'Piemonte', 7, 0.6)
+#' piemonte <- region(set_centers(torino))
+#'
+#' nord <- macroarea('Macroarea Nord',
+#'   macroregions = set_macroregions(piemonte, nitp)
+#' )
 #' get_macroregions(nord)
 get_macroregions.macroarea <- function(x, ...) {
   attr(x, 'macroregions')
@@ -21,6 +44,18 @@ get_regions.macroarea <- function(x, ...) {
     do.call(what = set_regions)
 }
 
+#' @describeIn macroarea wrapper function to access to the all the
+#'             names of reagions appear in the `set_macroregion`,
+#'             recursively.
+#' @inheritParams get_all_region
+#' @export
+#' @examples
+#' get_all_region(nord)
+get_all_region.macroarea <- function(x, ...) {
+    get_macroregions(x) %>%
+    get_all_region
+}
+
 #' @describeIn macroarea wrapper function to access to the name of the
 #'             state
 #' @inheritParams get_state
@@ -30,6 +65,20 @@ get_regions.macroarea <- function(x, ...) {
 get_state.macroarea <- function(x, ...) {
   attr(x, 'state')
 }
+
+
+#' @describeIn macroarea wrapper function to access to all the centers of
+#'             a macroarea
+#' @inheritParams get_centers
+#' @export
+#' @examples
+#' get_regions(nord) # "italy"
+get_centers.macroarea <- function(x, ...) {
+  get_regions(x) %>%
+    purrr::map(get_centers)
+}
+
+
 
 #' @describeIn macroarea compute the probability that at least one center
 #'             in any region of the macroarea accept an offered organ.

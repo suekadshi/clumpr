@@ -63,6 +63,15 @@ nitp <- macroregion('NITp', set_regions(lombardia, veneto),
 nitp
 get_regions(nitp)
 get_centers(nitp)
+
+# add another region and setup a macroarea
+torino   <- center('Torino', 'Piemonte', 7, 0.6)
+piemonte <- region(set_centers(torino))
+
+nord <- macroarea('Macroarea Nord',
+  macroregions = set_macroregions(piemonte, nitp)
+)
+
 # TODO
 ```
 

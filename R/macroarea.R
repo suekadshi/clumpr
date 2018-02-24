@@ -57,10 +57,10 @@
 #' torino   <- center('Torino', 'Piemonte', 7, 0.6)
 #' piemonte <- region(set_centers(torino))
 #'
-#' macro_nord <- macroarea('Macroarea Nord',
+#' nord <- macroarea('Macroarea Nord',
 #'   macroregions = set_macroregions(piemonte, nitp)
 #' )
-#' # macro_nord
+#' nord
 macroarea <- function(name, macroregions,
   initial_strip = get_all_region(macroregions),
   initial_time = 0L, final_time = Inf
@@ -130,7 +130,7 @@ macroarea <- function(name, macroregions,
 #' padova <- center('Padova', 'Veneto', 8, 0.7)
 #' veneto <- region(set_centers(padova))
 #'
-#' nitp <- macroregion(set_regions(lombardia, veneto))
+#' nitp <- macroregion('NITp', set_regions(lombardia, veneto))
 #'
 #' torino   <- center('Torino', 'Piemonte', 7, 0.6)
 #' piemonte <- region(set_centers(torino))
@@ -195,4 +195,119 @@ set_macroregions <- function(...) {
     ),
     class = 'set_macroregions'
   )
+}
+
+
+
+
+
+
+
+
+
+
+
+#' @inheritParams base::print
+#' @describeIn set_macroregions nice (and coloured, if supported) print method.
+#'
+#' @export
+print.set_macroregions <- function(x, ...) {
+  purrr::walk(x, ~ {print(.); cat_line()})
+  invisible(x)
+}
+
+
+
+#' @inheritParams base::print
+#' @describeIn macroarea nice (and coloured, if supported) print method.
+#'
+#' @export
+print.macroarea <- function(x, ...) {
+  cat_line('    ',
+      crayon::bold('Macroarea    : '),
+      crayon::blue(stringr::str_to_title(x[[1]])),
+      ' (', str_to_title_if_needed(get_state(x)), ')'
+  )
+
+  stored_macroregions <- get_macroregions(x)
+  cat_line('    ',
+      crayon::bold('Macroregions : '),
+      purrr::map_chr(stored_macroregions, 1L) %>%
+        str_to_title_if_needed() %>%
+        crayon::blue() %>%
+        paste(collapse = '; '),
+      ' (#', length(stored_macroregions), ')'
+  )
+
+  # cat_line('    ',
+  #     crayon::bold('Regions      : '),
+  #     stored_regions %>%
+  #       stringr::str_to_title() %>%
+  #       crayon::blue() %>%
+  #       paste(collapse = '; '),
+  #     ' (#', length(stored_regions), ')'
+  # )
+  cat_line('    ',
+      crayon::bold('Regions      : '),
+      purrr::map(stored_macroregions, get_all_region) %>%
+        purrr::map(str_to_title_if_needed) %>%
+        purrr::map(crayon::blue) %>%
+        purrr::map(paste, collapse = ', ') %>%
+        unlist %>%
+        paste(collapse = '; '),
+      ' (#', length(get_all_region(x)), ')'
+  )
+
+  stored_centers <- get_centers(x) %>%
+    purrr::map(get_center)
+  cat_line('    ',
+      crayon::bold('Centers      : '),
+      purrr::map(stored_centers,
+        ~ purrr::map_chr(.x, 1L)
+      ) %>%
+        purrr::map(stringr::str_to_title) %>%
+        purrr::map(crayon::blue) %>%
+        purrr::map(paste, collapse = ', ') %>%
+        unlist %>%
+        paste(collapse = '; '),
+      ' (#', length(unlist(stored_centers, recursive = FALSE)), ')'
+  )
+
+  acc_p <- get_p_accept(x)
+  if (acc_p == 0) {
+    cat_line('    ',
+      crayon::bold('Acceptance rate : '), crayon::red(acc_p)
+    )
+  } else {
+    cat_line('    ',
+      crayon::bold('Acceptance rate : '), crayon::green(acc_p),
+      ' (at least one center in some region)'
+    )
+  }
+
+  cat_line('    ',
+      crayon::bold('Offered organs  : '),
+      crayon::blue(get_offered(x)),
+    ' (from every the centers of every region)'
+  )
+
+  cat_line('    ',
+      crayon::bold('Initail strip   : '),
+      crayon::blue(get_initial_strip(x) %>% stringr::str_to_title()) %>%
+        paste(collapse = ' --> ')
+  )
+
+  cat_line('    ',
+      crayon::bold('Current strip   : '),
+      crayon::blue(get_current_strip(x) %>% stringr::str_to_title()) %>%
+        paste(collapse = ' --> ')
+  )
+
+  cat_line('    ',
+      crayon::bold('Time period     : '),
+      crayon::blue(get_time(x))
+  )
+
+
+  invisible(x)
 }

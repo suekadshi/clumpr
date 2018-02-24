@@ -45,7 +45,7 @@ test_that("correct known output", {
   expect_equal(get_time(nitp), 0L)
 })
 
-test_that('print works for set_center', {
+test_that('print works for get_center', {
   nitp <- macroregion('NITp', set_regions(lombardia, veneto))
   expect_output(print(get_centers(nitp)), 'Center')
   expect_output(print(get_centers(nitp)), 'lombardia')
@@ -85,4 +85,13 @@ test_that('zero p_accept print propery', {
   region_1 <- region(set_centers(center_1, center_2), default_p = 0)
   macro_1  <- macroregion('test_m_1', set_regions(region_1))
   expect_output(print(macro_1), 'rate : 0')
+})
+
+test_that('is_macroregion works propery', {
+  center_1 <- center('test_c_1', 'friuli-venezia giulia', 10)
+  center_2 <- center('test_c_2', 'friuli-venezia giulia', 5)
+  region_1 <- region(set_centers(center_1, center_2), default_p = 0)
+  macro_1  <- macroregion('test_m_1', set_regions(region_1))
+  expect_true(is_macroregion(macro_1))
+  expect_false(is_macroregion(region_1))
 })

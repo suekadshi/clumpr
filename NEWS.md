@@ -1,5 +1,8 @@
-# clumpr 0.0.3.043
+# clumpr 0.0.3.063
 
+* Added tests for macroareas.
+* Added `get_center` generic and methods for `center` and `set_centers`
+    classes;
 * Added `get_p_accept()` method for `macroarea`;
 * Added `get_*_strip()` (* = current or initial) generic funcitons and 
   methods for `macroarea`;

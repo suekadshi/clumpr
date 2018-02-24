@@ -24,7 +24,7 @@ test_that("throws error on wrong input", {
   expect_error(region(padova), 'set_centers')
   expect_error(region(set_centers(padova), 'a'), 'is not of clas')
   expect_error(region(set_centers(padova), -1), 'too low')
-  expect_error(region(set_centers(padova), 2), 'too high')
+  expect_error(region(set_centers(padova),  2), 'too high')
 })
 
 

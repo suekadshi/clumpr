@@ -38,3 +38,9 @@ unlist_1 <- function(x) {
     }
     res
 }
+
+
+str_to_title_if_needed <- function(x) {
+  purrr::map_if(x, x == stringr::str_to_lower(x), stringr::str_to_title) %>%
+    unlist
+}
