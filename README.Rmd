@@ -1,6 +1,7 @@
 ---
 title: clumpr
-output: github_document
+output: 
+  github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,7 +17,7 @@ knitr::opts_chunk$set(
 
 [![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
 [![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
-[![CRAN Status Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr) -->
 
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
@@ -24,7 +25,7 @@ Last update: `r Sys.Date()`
 
 ## Description
 
-The `clumpr` package aims is to provide a toolbox of function for model,
+The `clumpr` package aims to provide a toolbox of function for model,
 validate and visualize dynamics assessed by the "Protocollo Nazionale per la
 Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
 
@@ -71,6 +72,11 @@ piemonte <- region(set_centers(torino))
 nord <- macroarea('Macroarea Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
+
+nord
+get_macroregions(nord)
+get_regions(nord)
+get_centers(nord)
 
 # TODO
 ```

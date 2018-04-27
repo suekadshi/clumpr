@@ -1,5 +1,6 @@
 # clumpr 0.0.3.063
 
+* Updated `README`
 * Added tests for macroareas.
 * Added `get_center` generic and methods for `center` and `set_centers`
     classes;

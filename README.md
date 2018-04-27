@@ -2,30 +2,21 @@ clumpr
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr) [![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr) [![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)
 
-[![Travis Build
-Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
-[![Codecov
-Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
-[![CRAN Status
-Badge](https://www.r-pkg.org/badges/version/clumpr.svg)](http://cran.R-project.org/)
+**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
-**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in
-**R**
+Last update: 2018-04-27
 
-Last update: 2018-02-24
+Description
+-----------
 
-## Description
+The `clumpr` package aims to provide a toolbox of function for model, validate and visualize dynamics assessed by the "Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
 
-The `clumpr` package aims is to provide a toolbox of function for model,
-validate and visualize dynamics assessed by the “Protocollo Nazionale
-per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto” in
-Italy.
+The first implementation is focused on the lung-transplant centers management.
 
-The first implementation is focused on the lung-transplant centers
-management.
-
-## Example
+Example
+-------
 
 This is a basic example which shows you how it works:
 
@@ -113,10 +104,76 @@ nord <- macroarea('Macroarea Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 
+nord
+#>     Macroarea    : Macroarea Nord (Italy)
+#>     Macroregions : Piemonte; NITp (#2)
+#>     Regions      : Piemonte; Lombardia, Veneto (#3)
+#>     Centers      : Torino; Pavia, Bergamo, Milano; Padova (#5)
+#>     Acceptance rate : 0.9968 (at least one center in some region)
+#>     Offered organs  : 38 (from every the centers of every region)
+#>     Initail strip   : Piemonte --> Lombardia --> Veneto
+#>     Current strip   : Piemonte --> Lombardia --> Veneto
+#>     Time period     : 0
+get_macroregions(nord)
+#>     Region  : Piemonte (Italy)
+#>     Centers : Torino (#1)
+#>     Acceptance rate : 0.6 (at least one center)
+#>     Offered organs  : 7 (from all the centers)
+#> 
+#>     Macroregion : NITp (Italy)
+#>     Regions     : Lombardia; Veneto (#2)
+#>     Centers     : Pavia, Bergamo, Milano; Padova (#4)
+#>     Acceptance rate : 0.992 (at least one center in some region)
+#>     Offered organs  : 31 (from every the centers of every region)
+#>     Initail strip   : Lombardia --> Lombardia --> Veneto
+#>     Current strip   : Lombardia --> Lombardia --> Veneto
+#>     Time period     : 0
+get_regions(nord)
+#>     Region  : Piemonte (Italy)
+#>     Centers : Torino (#1)
+#>     Acceptance rate : 0.6 (at least one center)
+#>     Offered organs  : 7 (from all the centers)
+#> 
+#>     Region  : Lombardia (Italy)
+#>     Centers : Pavia, Bergamo, Milano (#3)
+#>     Acceptance rate : 0.92 (at least one center)
+#>     Offered organs  : 21 (from all the centers)
+#> 
+#>     Region  : Veneto (Italy)
+#>     Centers : Padova (#1)
+#>     Acceptance rate : 0.9 (at least one center)
+#>     Offered organs  : 10 (from all the centers)
+get_centers(nord)
+#> $piemonte
+#>     Center           : Torino (Piemonte --- Italy)
+#>     Acceptance rate  : 0.6
+#>     Offered organs   : 7
+#> 
+#> 
+#> $lombardia
+#>     Center           : Pavia (Lombardia --- Italy)
+#>     Acceptance rate  : 0.8
+#>     Offered organs   : 11
+#> 
+#>     Center           : Bergamo (Lombardia --- Italy)
+#>     Acceptance rate  : 0.5
+#>     Offered organs   : 7
+#> 
+#>     Center           : Milano (Lombardia --- Italy)
+#>     Acceptance rate  : <inherit from the region rate>
+#>     Offered organs   : 3
+#> 
+#> 
+#> $veneto
+#>     Center           : Padova (Veneto --- Italy)
+#>     Acceptance rate  : 0.9
+#>     Offered organs   : 10
+
 # TODO
 ```
 
-## Installation
+Installation
+------------
 
 You can install clumpr from GitHub with:
 
@@ -125,14 +182,12 @@ You can install clumpr from GitHub with:
 devtools::install_github("UBESP-DCTV/clumpr")
 ```
 
-## Bug reports
+Bug reports
+-----------
 
-If you encounter a bug, please file a
-[reprex](https://github.com/tidyverse/reprex) (minimal reproducible
-example) to <https://github.com/UBESP-DCTV/clumpr/issues>
+If you encounter a bug, please file a [reprex](https://github.com/tidyverse/reprex) (minimal reproducible example) to <https://github.com/UBESP-DCTV/clumpr/issues>
 
-## References
+References
+----------
 
-**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i
-Programmi di Trapianto**
-([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))
+**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto** ([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))
