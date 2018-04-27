@@ -1,11 +1,19 @@
 # clumpr 0.0.4.9000
 
+* Updated `README`
+* Added tests for state constructor.
+* Added `get_macroareas()`, `get_macroregion()`, `get_region()`,
+    `get_all_region()`, `get_state()`, `get_centers()`, `get_p_accept()`,
+    `get_offered()`, `get_time()` methods for `state` class;
+* Added `print()` method for `state`;
+* Added `state()` and `set_macroareas` to create object of class `state`.
+
 # clumpr 0.0.4
 
-* Updated `LICENCE` file
-* Added lifecycle badge to the `README` file.
-* Added `CODE_OF_CONDUCT.md` file.
-* Reshaped `DESCRIPTION` accordingly to the tidy standards.
+* Updated `LICENCE` file;
+* Added lifecycle badge to the `README` file;
+* Added `CODE_OF_CONDUCT.md` file;
+* Reshaped `DESCRIPTION` accordingly to the tidy standards;
 * Added support for AppVeyor.
 
 # clumpr 0.0.3.063
@@ -51,7 +59,7 @@
 * Added `get_center`, `get_region`, `get_state`, `get_p_accept`,
   `get_offered`, `get_initial_strip` ,`get_current_strip`, `get_time`
   methods for `macroregion` (and generic function when needed);
-* Added `print()` method for `macroregion` and `det_macroregion`;
+* Added `print()` method for `macroregion` and `set_macroregion`;
 * Added `macroregion()` to create object of class `macroregion`.
 
 # clumpr 0.0.2.0002

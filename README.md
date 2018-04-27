@@ -7,8 +7,8 @@ clumpr
 Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
 [![Codecov
 Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/UBESP-DCTV/clumpr?branch=master&svg=true)](https://ci.appveyor.com/project/UBESP-DCTV/clumpr)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/2q6ylqbu14cu43am?svg=true)](https://ci.appveyor.com/project/CorradoLanera/clumpr)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)

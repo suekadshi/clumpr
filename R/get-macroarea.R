@@ -72,7 +72,7 @@ get_state.macroarea <- function(x, ...) {
 #' @inheritParams get_centers
 #' @export
 #' @examples
-#' get_regions(nord) # "italy"
+#' get_centers(nord)
 get_centers.macroarea <- function(x, ...) {
   get_regions(x) %>%
     purrr::map(get_centers)

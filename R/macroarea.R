@@ -3,8 +3,8 @@
 #' The function \code{\link{macroarea}()} is the constructor function for
 #' the homonymous class.
 #'
-#' @note Even if improbable, a \code{\link{macroarea}} can be composed by a single
-#'       \code{\link{macroregion}} which can be composed by a single
+#' @note Even if improbable, a \code{\link{macroarea}} can be composed by a
+#'       single \code{\link{macroregion}} which can be composed by a single
 #'       \code{\link{region}} which can be composed by a single
 #'       \code{\link{center}}
 #'
@@ -28,7 +28,7 @@
 #'        \code{\link{macroregion}}s has been included in the argument
 #'        \code{macroregions})
 #' @param initial_time [int] (default is `0`) the time in which the
-#'        \code{\link{macroarea}} as defined start to be used
+#'        \code{\link{macroarea}} is defined start to be used
 #' @param final_time [int] (default is `Inf`, i.e. forever) the time in
 #'        which the macroarea finish to be used
 #'
@@ -288,7 +288,7 @@ print.macroarea <- function(x, ...) {
   cat_line('    ',
       crayon::bold('Offered organs  : '),
       crayon::blue(get_offered(x)),
-    ' (from every the centers of every region)'
+    ' (from every centers of every region)'
   )
 
   cat_line('    ',

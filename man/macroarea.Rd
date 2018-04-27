@@ -73,7 +73,7 @@ Exculsions are permitted but repetitions are not admitted.
 \code{macroregions})}
 
 \item{initial_time}{[int] (default is `0`) the time in which the
-\code{\link{macroarea}} as defined start to be used}
+\code{\link{macroarea}} is defined start to be used}
 
 \item{final_time}{[int] (default is `Inf`, i.e. forever) the time in
 which the macroarea finish to be used}
@@ -128,8 +128,8 @@ in any region of the macroarea accept an offered organ.
 }}
 
 \note{
-Even if improbable, a \code{\link{macroarea}} can be composed by a single
-      \code{\link{macroregion}} which can be composed by a single
+Even if improbable, a \code{\link{macroarea}} can be composed by a
+      single \code{\link{macroregion}} which can be composed by a single
       \code{\link{region}} which can be composed by a single
       \code{\link{center}}
 }
@@ -161,7 +161,7 @@ get_macroregions(nord)
 get_regions(nord)
 get_all_region(nord)
 get_state(nord) # "italy"
-get_regions(nord) # "italy"
+get_centers(nord)
 get_p_accept(nord)
 get_offered(nord)
 get_initial_strip(nord)
