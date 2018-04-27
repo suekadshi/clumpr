@@ -17,7 +17,9 @@ knitr::opts_chunk$set(
 
 [![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
 [![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr) -->
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/UBESP-DCTV/clumpr?branch=master&svg=true)](https://ci.appveyor.com/project/UBESP-DCTV/clumpr)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)
 
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
@@ -100,6 +102,10 @@ If you encounter a bug, please file a
 to <https://github.com/UBESP-DCTV/clumpr/issues>
 
 
+## Code of conduct
+Please note that this project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
+project you agree to abide by its terms.
 
 ## References
 

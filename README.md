@@ -2,21 +2,33 @@ clumpr
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr) [![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr) [![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)
 
-**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
+[![Travis Build
+Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
+[![Codecov
+Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/UBESP-DCTV/clumpr?branch=master&svg=true)](https://ci.appveyor.com/project/UBESP-DCTV/clumpr)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)
+
+**C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in
+**R**
 
 Last update: 2018-04-27
 
-Description
------------
+## Description
 
-The `clumpr` package aims to provide a toolbox of function for model, validate and visualize dynamics assessed by the "Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto" in Italy.
+The `clumpr` package aims to provide a toolbox of function for model,
+validate and visualize dynamics assessed by the “Protocollo Nazionale
+per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto” in
+Italy.
 
-The first implementation is focused on the lung-transplant centers management.
+The first implementation is focused on the lung-transplant centers
+management.
 
-Example
--------
+## Example
 
 This is a basic example which shows you how it works:
 
@@ -172,8 +184,7 @@ get_centers(nord)
 # TODO
 ```
 
-Installation
-------------
+## Installation
 
 You can install clumpr from GitHub with:
 
@@ -182,12 +193,20 @@ You can install clumpr from GitHub with:
 devtools::install_github("UBESP-DCTV/clumpr")
 ```
 
-Bug reports
------------
+## Bug reports
 
-If you encounter a bug, please file a [reprex](https://github.com/tidyverse/reprex) (minimal reproducible example) to <https://github.com/UBESP-DCTV/clumpr/issues>
+If you encounter a bug, please file a
+[reprex](https://github.com/tidyverse/reprex) (minimal reproducible
+example) to <https://github.com/UBESP-DCTV/clumpr/issues>
 
-References
-----------
+## Code of conduct
 
-**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i Programmi di Trapianto** ([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
+
+## References
+
+**Protocollo Nazionale per la Gestione delle Eccedenze di Tutti i
+Programmi di Trapianto**
+([pdf](http://www.policlinico.mi.it/AMM/nitp/area_operatore/linee_guida/03/ProtocolloNazionaleGestioneEccedenzeCNTO140804.pdf))

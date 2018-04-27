@@ -1,5 +1,11 @@
 # clumpr 0.0.4
 
+* Updated `LICENCE` file
+* Added lifecycle badge to the `README` file.
+* Added `CODE_OF_CONDUCT.md` file.
+* Reshaped `DESCRIPTION` accordingly to the tidy standards.
+* Added support for AppVeyor.
+
 # clumpr 0.0.3.063
 
 * Updated `README`
