@@ -87,6 +87,22 @@ get_macroregions <- function(x, ...) {
   UseMethod("get_macroregions")
 }
 
+#' Get all the macroregions' names
+#'
+#' This is a generic function aimed to access to the \code{macroregions}
+#' names of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroregions}' name for the object \code{x}.
+#'
+#' @export
+get_all_macroregion <- function(x, ...) {
+  UseMethod("get_all_macroregion")
+}
+
+
 #' Get the macroareas details
 #'
 #' This is a generic function aimed to access to the \code{macroareas}
@@ -101,6 +117,22 @@ get_macroregions <- function(x, ...) {
 get_macroareas <- function(x, ...) {
   UseMethod("get_macroareas")
 }
+
+#' Get all the macroareas' name
+#'
+#' This is a generic function aimed to access to the \code{macroareas}
+#' names of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroareas} names for the object \code{x}.
+#'
+#' @export
+get_all_macroarea <- function(x, ...) {
+  UseMethod("get_all_macroarea")
+}
+
 
 #' Get the state details
 #'

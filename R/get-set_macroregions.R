@@ -22,3 +22,13 @@ get_all_region.set_macroregions <- function(x, ...) {
     unlist %>%
     unname
 }
+
+#' @describeIn set_macroregions wrapper function to access to the all the
+#'             names of macroregions (regions included).
+#' @inheritParams get_all_region
+#' @export
+#' @examples
+#' get_all_macroregion(set_macroregions(piemonte, nitp))
+get_all_macroregion.set_macroregions <- function(x, ...) {
+  names(x)
+}

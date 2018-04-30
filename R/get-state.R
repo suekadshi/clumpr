@@ -123,6 +123,26 @@ get_offered.state <- function(x, ...) {
 }
 
 #' @describeIn state wrapper function to access to the detail
+#'             "initial_strip".
+#' @inheritParams get_initial_strip
+#' @export
+#' @examples
+#' get_initial_strip(italy)
+get_initial_strip.state <- function(x, ...) {
+  attr(x, 'initial_strip')
+}
+
+#' @describeIn state wrapper function to access to the detail
+#'             "current_strip".
+#' @inheritParams get_current_strip
+#' @export
+#' @examples
+#' get_current_strip(italy)
+get_current_strip.state <- function(x, ...) {
+  attr(x, 'current_strip')
+}
+
+#' @describeIn state wrapper function to access to the detail
 #'             "current_time".
 #' @inheritParams get_time
 #' @export

@@ -71,7 +71,7 @@ get_centers(nitp)
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 
@@ -80,8 +80,16 @@ get_macroregions(nord)
 get_regions(nord)
 get_centers(nord)
 
+roma   <- center('Roma', 'Lazio', 10, 0.9)
+lazio  <- region(set_centers(roma))
+
+sud <- macroarea('Sud',
+  macroregions = set_macroregions(lazio)
+)
+
 italy <- state('Italy', set_macroareas(nord, sud))
 italy
+
 get_macroareas(italy)
 get_macroregions(italy)
 get_regions(italy)

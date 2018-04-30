@@ -9,6 +9,8 @@
 \alias{get_centers.state}
 \alias{get_p_accept.state}
 \alias{get_offered.state}
+\alias{get_initial_strip.state}
+\alias{get_current_strip.state}
 \alias{get_time.state}
 \alias{state}
 \alias{print.state}
@@ -30,9 +32,13 @@
 
 \method{get_offered}{state}(x, ...)
 
+\method{get_initial_strip}{state}(x, ...)
+
+\method{get_current_strip}{state}(x, ...)
+
 \method{get_time}{state}(x, ...)
 
-state(name, macroareas)
+state(name, macroareas, initial_strip = get_all_macroarea(macroareas))
 
 \method{print}{state}(x, ...)
 }
@@ -47,6 +53,16 @@ state(name, macroareas)
 \code{\link{macroarea}}, passed by
 \code{\link{set_macroareas}()}. Note: all the macroarea in a
 state must be of the same state (obviously).}
+
+\item{initial_strip}{[chr] a sequence of \code{\link{macroarea}}s'
+names in the \code{\link{state}} representing the order in
+which organs started to be distributed in the
+\code{\link{state}} at the beginning of the period. All the
+listed \code{\link{area}}s
+have to be included also in the \code{macroareas} field.
+Exculsions are permitted but repetitions are not admitted.
+(default is the sequence in which \code{\link{area}}s
+has been included in the argument \code{macroareas})}
 }
 \value{
 An object of class \code{\link{state}}.
@@ -80,6 +96,12 @@ in any region of the state accept an offered organ.
 
 \item \code{get_offered}: wrapper function to access to the detail
 "offered".
+
+\item \code{get_initial_strip}: wrapper function to access to the detail
+"initial_strip".
+
+\item \code{get_current_strip}: wrapper function to access to the detail
+"current_strip".
 
 \item \code{get_time}: wrapper function to access to the detail
 "current_time".
@@ -120,6 +142,8 @@ get_state(italy) # "italy"
 get_centers(italy)
 get_p_accept(italy)
 get_offered(italy)
+get_initial_strip(italy)
+get_current_strip(italy)
 get_time(italy)
 pavia   <- center('Pavia',   'Lombardia', offered = 5, p_accept = 0.6)
 pavia
@@ -141,7 +165,7 @@ nitp
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 nord
@@ -149,7 +173,7 @@ nord
 roma   <- center('Roma', 'Lazio', 10, 0.9)
 lazio  <- region(set_centers(roma))
 
-sud <- macroarea('Macroarea Sud',
+sud <- macroarea('Sud',
   macroregions = set_macroregions(lazio)
 )
 sud

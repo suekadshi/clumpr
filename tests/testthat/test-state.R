@@ -15,13 +15,14 @@ nitp <- macroregion('NITp', regions = set_regions(lombardia, veneto),
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 
 roma  <- center('Roma', 'Lazio', 10, 0.9)
 lazio <- region(set_centers(roma))
-sud   <- macroarea('Macroarea Sud', macroregions = set_macroregions(lazio))
+
+sud   <- macroarea('Sud', macroregions = set_macroregions(lazio))
 
 
 test_that("set_macroareas input", {
@@ -53,4 +54,12 @@ test_that("throws error on wrong input", {
 })
 
 
+test_that("correct known output", {
+  italy <- state('Italy', set_macroareas(nord, sud))
 
+  expect_is(get_regions(italy), 'set_regions')
+  expect_equal(get_regions(italy), set_regions(piemonte, lombardia, veneto, lazio))
+  expect_equivalent(get_initial_strip(italy), c('nord', 'sud'))
+  expect_equivalent(get_current_strip(italy), c('nord', 'sud'))
+  expect_equal(get_time(italy), 0L)
+})

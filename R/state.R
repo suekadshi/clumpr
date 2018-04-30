@@ -8,6 +8,15 @@
 #'        \code{\link{macroarea}}, passed by
 #'        \code{\link{set_macroareas}()}. Note: all the macroarea in a
 #'        state must be of the same state (obviously).
+#' @param initial_strip [chr] a sequence of \code{\link{macroarea}}s'
+#'        names in the \code{\link{state}} representing the order in
+#'        which organs started to be distributed in the
+#'        \code{\link{state}} at the beginning of the period. All the
+#'        listed \code{\link{area}}s
+#'        have to be included also in the \code{macroareas} field.
+#'        Exculsions are permitted but repetitions are not admitted.
+#'        (default is the sequence in which \code{\link{area}}s
+#'        has been included in the argument \code{macroareas})
 #'
 #' @return An object of class \code{\link{state}}.
 #' @export
@@ -33,7 +42,7 @@
 #' torino   <- center('Torino', 'Piemonte', 7, 0.6)
 #' piemonte <- region(set_centers(torino))
 #'
-#' nord <- macroarea('Macroarea Nord',
+#' nord <- macroarea('Nord',
 #'   macroregions = set_macroregions(piemonte, nitp)
 #' )
 #' nord
@@ -41,7 +50,7 @@
 #' roma   <- center('Roma', 'Lazio', 10, 0.9)
 #' lazio  <- region(set_centers(roma))
 #'
-#' sud <- macroarea('Macroarea Sud',
+#' sud <- macroarea('Sud',
 #'   macroregions = set_macroregions(lazio)
 #' )
 #' sud
@@ -50,7 +59,9 @@
 #'   macroareas = set_macroareas(nord, sud)
 #' )
 #' italy
-state <- function(name, macroareas) {
+state <- function(name, macroareas,
+                  initial_strip = get_all_macroarea(macroareas)
+) {
 
   # input check ---------------------------------------------------------
 
@@ -97,6 +108,8 @@ state <- function(name, macroareas) {
             macroareas      = macroareas,
             acceptance_rate = at_least_one(p_accept_area),
             offered         = sum(total_offered),
+            initial_strip   = initial_strip,
+            current_strip   = initial_strip,
             current_time    = 0L,
             state           = get_state(macroareas[[1L]]),
             class           = 'state'
@@ -296,6 +309,18 @@ print.state <- function(x, ...) {
            crayon::bold('Offered organs  : '),
            crayon::blue(get_offered(x)),
            ' (from every centers of every region)'
+  )
+
+  cat_line('    ',
+           crayon::bold('Initail strip   : '),
+           crayon::blue(get_initial_strip(x) %>% stringr::str_to_title()) %>%
+             paste(collapse = ' --> ')
+  )
+
+  cat_line('    ',
+           crayon::bold('Current strip   : '),
+           crayon::blue(get_current_strip(x) %>% stringr::str_to_title()) %>%
+             paste(collapse = ' --> ')
   )
 
   cat_line('    ',

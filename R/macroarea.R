@@ -57,12 +57,12 @@
 #' torino   <- center('Torino', 'Piemonte', 7, 0.6)
 #' piemonte <- region(set_centers(torino))
 #'
-#' nord <- macroarea('Macroarea Nord',
+#' nord <- macroarea('Nord',
 #'   macroregions = set_macroregions(piemonte, nitp)
 #' )
 #' nord
 macroarea <- function(name, macroregions,
-  initial_strip = get_all_region(macroregions),
+  initial_strip = get_all_macroregion(macroregions),
   initial_time = 0L, final_time = Inf
 ) {
 

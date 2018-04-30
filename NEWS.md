@@ -1,5 +1,8 @@
-# clumpr 0.0.4.9000
+# clumpr 0.0.5
 
+* Added strip support to state
+* Changed strip for macroarea from region level to macroregion level
+* Added tests dor state
 * Updated `README`
 * Added tests for state constructor.
 * Added `get_macroareas()`, `get_macroregion()`, `get_region()`,

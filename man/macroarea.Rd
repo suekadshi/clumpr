@@ -4,6 +4,7 @@
 \alias{get_macroregions.macroarea}
 \alias{get_regions.macroarea}
 \alias{get_all_region.macroarea}
+\alias{get_all_macroregion.macroarea}
 \alias{get_state.macroarea}
 \alias{get_centers.macroarea}
 \alias{get_p_accept.macroarea}
@@ -23,6 +24,8 @@
 
 \method{get_all_region}{macroarea}(x, ...)
 
+\method{get_all_macroregion}{macroarea}(x, ...)
+
 \method{get_state}{macroarea}(x, ...)
 
 \method{get_centers}{macroarea}(x, ...)
@@ -41,8 +44,9 @@
 
 \method{get_final_time}{macroarea}(x, ...)
 
-macroarea(name, macroregions, initial_strip = get_all_region(macroregions),
-  initial_time = 0L, final_time = Inf)
+macroarea(name, macroregions,
+  initial_strip = get_all_macroregion(macroregions), initial_time = 0L,
+  final_time = Inf)
 
 \method{print}{macroarea}(x, ...)
 }
@@ -96,6 +100,9 @@ macroarea
 \item \code{get_all_region}: wrapper function to access to the all the
 names of reagions appear in the `set_macroregion`,
 recursively.
+
+\item \code{get_all_macroregion}: wrapper function to access to the all the names
+of macroregions (regions included).
 
 \item \code{get_state}: wrapper function to access to the name of the
 state
@@ -160,6 +167,7 @@ nord <- macroarea('Macroarea Nord',
 get_macroregions(nord)
 get_regions(nord)
 get_all_region(nord)
+get_all_macroregion(nord)
 get_state(nord) # "italy"
 get_centers(nord)
 get_p_accept(nord)
@@ -189,7 +197,7 @@ nitp
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 nord
