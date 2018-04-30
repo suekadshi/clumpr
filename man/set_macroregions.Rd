@@ -2,11 +2,14 @@
 % Please edit documentation in R/get-set_macroregions.R, R/macroarea.R
 \name{get_all_region.set_macroregions}
 \alias{get_all_region.set_macroregions}
+\alias{get_all_macroregion.set_macroregions}
 \alias{set_macroregions}
 \alias{print.set_macroregions}
 \title{List of regions/macroregion creator}
 \usage{
 \method{get_all_region}{set_macroregions}(x, ...)
+
+\method{get_all_macroregion}{set_macroregions}(x, ...)
 
 set_macroregions(...)
 
@@ -33,6 +36,9 @@ create \code{\link{macroarea}} objects.
 names of reagions appear in the `set_macroregion`,
 recursively.
 
+\item \code{get_all_macroregion}: wrapper function to access to the all the
+names of macroregions (regions included).
+
 \item \code{print}: nice (and coloured, if supported) print method.
 }}
 
@@ -50,6 +56,7 @@ torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
 get_all_region(set_macroregions(piemonte, nitp))
+get_all_macroregion(set_macroregions(piemonte, nitp))
 pavia  <- center('Pavia',  'Lombardia')
 milano <- center('Milano', 'Lombardia')
 lombardia <- region(set_centers(pavia, milano))

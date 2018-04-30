@@ -56,6 +56,17 @@ get_all_region.macroarea <- function(x, ...) {
     get_all_region
 }
 
+#' @describeIn macroarea wrapper function to access to the all the names
+#'             of macroregions (regions included).
+#' @inheritParams get_all_macroregion
+#' @export
+#' @examples
+#' get_all_macroregion(nord)
+get_all_macroregion.macroarea <- function(x, ...) {
+  get_macroregions(x) %>%
+    get_all_macroregion()
+}
+
 #' @describeIn macroarea wrapper function to access to the name of the
 #'             state
 #' @inheritParams get_state
@@ -72,7 +83,7 @@ get_state.macroarea <- function(x, ...) {
 #' @inheritParams get_centers
 #' @export
 #' @examples
-#' get_regions(nord) # "italy"
+#' get_centers(nord)
 get_centers.macroarea <- function(x, ...) {
   get_regions(x) %>%
     purrr::map(get_centers)

@@ -12,6 +12,21 @@ get_center <- function(x, ...) {
   UseMethod("get_center")
 }
 
+#' Get the centers details
+#'
+#' This is a generic function aimed to access to the \code{centers} details
+#' of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{centers} details for the object \code{x}.
+#' @export
+get_centers <- function(x, ...) {
+  UseMethod("get_centers")
+}
+
+
 #' Get the region name
 #'
 #' This is a generic function aimed to access to the region name of an
@@ -41,6 +56,98 @@ get_region <- function(x, ...) {
 get_all_region <- function(x, ...) {
   UseMethod("get_all_region")
 }
+
+#' Get the regions details
+#'
+#' This is a generic function aimed to access to the \code{regions} details
+#' of an object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{regions} details for the object \code{x}.
+#' @export
+get_regions <- function(x, ...) {
+  UseMethod("get_regions")
+}
+
+
+#' Get the macroregions details
+#'
+#' This is a generic function aimed to access to the \code{macroregions}
+#' details of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroregions} details for the object \code{x}.
+#'
+#' @export
+get_macroregions <- function(x, ...) {
+  UseMethod("get_macroregions")
+}
+
+#' Get all the macroregions' names
+#'
+#' This is a generic function aimed to access to the \code{macroregions}
+#' names of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroregions}' name for the object \code{x}.
+#'
+#' @export
+get_all_macroregion <- function(x, ...) {
+  UseMethod("get_all_macroregion")
+}
+
+
+#' Get the macroareas details
+#'
+#' This is a generic function aimed to access to the \code{macroareas}
+#' details of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroareas} details for the object \code{x}.
+#'
+#' @export
+get_macroareas <- function(x, ...) {
+  UseMethod("get_macroareas")
+}
+
+#' Get all the macroareas' name
+#'
+#' This is a generic function aimed to access to the \code{macroareas}
+#' names of an object
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The \code{macroareas} names for the object \code{x}.
+#'
+#' @export
+get_all_macroarea <- function(x, ...) {
+  UseMethod("get_all_macroarea")
+}
+
+
+#' Get the state details
+#'
+#' This is a generic function aimed to access to the state details of an
+#' object.
+#'
+#' @param x an object used to select a method.
+#' @param ... further arguments passed to or from other methods.
+#'
+#' @return The state details for the object \code{x}.
+#' @export
+get_state <- function(x, ...) {
+  UseMethod("get_state")
+}
+
 
 #' Get the probability of acceptance
 #'
@@ -82,63 +189,6 @@ get_offered <- function(x, ...) {
 #' @export
 get_p_default <- function(x, ...) {
   UseMethod("get_p_default")
-}
-
-#' Get the state details
-#'
-#' This is a generic function aimed to access to the state details of an
-#' object.
-#'
-#' @param x an object used to select a method.
-#' @param ... further arguments passed to or from other methods.
-#'
-#' @return The state details for the object \code{x}.
-#' @export
-get_state <- function(x, ...) {
-  UseMethod("get_state")
-}
-
-#' Get the centers details
-#'
-#' This is a generic function aimed to access to the \code{centers} details
-#' of an object.
-#'
-#' @param x an object used to select a method.
-#' @param ... further arguments passed to or from other methods.
-#'
-#' @return The \code{centers} details for the object \code{x}.
-#' @export
-get_centers <- function(x, ...) {
-  UseMethod("get_centers")
-}
-
-#' Get the regions details
-#'
-#' This is a generic function aimed to access to the \code{regions} details
-#' of an object.
-#'
-#' @param x an object used to select a method.
-#' @param ... further arguments passed to or from other methods.
-#'
-#' @return The \code{regions} details for the object \code{x}.
-#' @export
-get_regions <- function(x, ...) {
-  UseMethod("get_regions")
-}
-
-#' Get the macroregions details
-#'
-#' This is a generic function aimed to access to the \code{macroregions}
-#' details of an object
-#'
-#' @param x an object used to select a method.
-#' @param ... further arguments passed to or from other methods.
-#'
-#' @return The \code{macroregions} details for the object \code{x}.
-#'
-#' @export
-get_macroregions <- function(x, ...) {
-  UseMethod("get_macroregions")
 }
 
 #' Get the initial strip details

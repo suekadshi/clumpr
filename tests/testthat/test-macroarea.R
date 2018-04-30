@@ -48,12 +48,12 @@ test_that("throws error on wrong input", {
 
 
 test_that("correct known output", {
-  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  nord <- macroarea('Nord', set_macroregions(piemonte, nitp))
 
   expect_is(get_regions(nord), 'set_regions')
   expect_equal(get_regions(nord), set_regions(piemonte, lombardia, veneto))
-  expect_equivalent(get_initial_strip(nord), c('piemonte', 'lombardia', 'veneto'))
-  expect_equivalent(get_current_strip(nord), c('piemonte', 'lombardia', 'veneto'))
+  expect_equivalent(get_initial_strip(nord), c('piemonte', 'nitp'))
+  expect_equivalent(get_current_strip(nord), c('piemonte', 'nitp'))
   expect_equal(get_initial_time(nord), 0L)
   expect_equal(get_initial_time(nord), 0L)
   expect_equal(get_time(nord), 0L)
@@ -63,7 +63,7 @@ test_that("correct known output", {
 
 
 test_that('print works for get_center', {
-  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  nord <- macroarea('Nord', set_macroregions(piemonte, nitp))
   expect_output(print(get_centers(nord)), 'piemonte')
   expect_output(print(get_centers(nitp)), 'Pavia')
   expect_is(print(get_centers(nord)), 'list')
@@ -93,18 +93,19 @@ test_that('print works properly', {
     macroarea(name = 'macro_1')
   expect_output(print(test_1), 'rate : 0')
 
-  test_area1 <- macroarea('Macroarea Nord', set_macroregions(nitp))
-  test_area2 <- macroarea('Macroarea Nord', set_macroregions(piemonte))
+  test_area1 <- macroarea('Nord', set_macroregions(nitp))
+  test_area2 <- macroarea('Nord', set_macroregions(piemonte))
   expect_is(print(test_area1), 'macroarea')
   expect_is(print(test_area2), 'macroarea')
 })
 
 
 test_that('pass correct default', {
-  nord <- macroarea('Macroarea Nord', set_macroregions(piemonte, nitp))
+  nord <- macroarea('Nord', set_macroregions(piemonte, nitp))
   expect_equivalent(get_initial_strip(nord),
-    c('piemonte', 'lombardia', 'veneto')
+    c('piemonte', 'nitp')
   )
   expect_equal(get_initial_time(nord), 0L)
   expect_equal(get_final_time(nord), Inf)
+  expect_equal(get_all_macroregion(nord), c("piemonte", "nitp"))
 })

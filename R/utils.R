@@ -26,14 +26,15 @@ unlist_1 <- function(x) {
 
     res <- vector('list', sum(lens_x))
 
+    ends  <- cumsum(lens_x)
+    starts <- ends - lens_x + 1L
+
     for (i in seq_along(lens_x)) {
-      ends  <- cumsum(lens_x)
-      start <- ends - lens_x + 1L
 
       if (lens_x[[i]] == 1L) {
-        res[start[[i]]:ends[[i]]] <- x[i]
+        res[starts[[i]]:ends[[i]]] <- x[i]
       } else {
-        res[start[[i]]:ends[[i]]] <- x[[i]]
+        res[starts[[i]]:ends[[i]]] <- x[[i]]
       }
     }
     res
@@ -44,3 +45,18 @@ str_to_title_if_needed <- function(x) {
   purrr::map_if(x, x == stringr::str_to_lower(x), stringr::str_to_title) %>%
     unlist
 }
+
+
+# cat_centers <- function(region, sep = ', ') {
+#   attr(region, 'centers') %>%
+#   purrr::map_chr(crayon::blue) %>%
+#   paste(collapse = sep)
+# }
+#
+# cat_region <- function(macroregion, sep = '; ') {
+#   attr(macroregion, 'regions') %>%
+#   purrr::map_chr(crayon::blue) %>%
+#   paste(collapse = sep)
+#
+# }
+

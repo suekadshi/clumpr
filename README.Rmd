@@ -17,7 +17,9 @@ knitr::opts_chunk$set(
 
 [![Travis Build Status](https://travis-ci.com/UBESP-DCTV/clumpr.svg?token=wGyFLep97LHjNKfPGjkg&branch=structures)](https://travis-ci.org/UBESP-DCTV/clumpr)
 [![Codecov Status](https://codecov.io/gh/UBESP-DCTV/clumpr/branch/structures/graph/badge.svg?token=IY02gbLUth)](https://codecov.io/gh/UBESP-DCTV/clumpr)
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr) -->
+[![Build status](https://ci.appveyor.com/api/projects/status/2q6ylqbu14cu43am?svg=true)](https://ci.appveyor.com/project/CorradoLanera/clumpr)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![CRAN status](https://www.r-pkg.org/badges/version/clumpr)](https://cran.r-project.org/package=clumpr)
 
 **C**urrent transp**L**ant s**U**rplus **M**anagement **P**rotocol in **R**
 
@@ -69,7 +71,7 @@ get_centers(nitp)
 torino   <- center('Torino', 'Piemonte', 7, 0.6)
 piemonte <- region(set_centers(torino))
 
-nord <- macroarea('Macroarea Nord',
+nord <- macroarea('Nord',
   macroregions = set_macroregions(piemonte, nitp)
 )
 
@@ -77,6 +79,21 @@ nord
 get_macroregions(nord)
 get_regions(nord)
 get_centers(nord)
+
+roma   <- center('Roma', 'Lazio', 10, 0.9)
+lazio  <- region(set_centers(roma))
+
+sud <- macroarea('Sud',
+  macroregions = set_macroregions(lazio)
+)
+
+italy <- state('Italy', set_macroareas(nord, sud))
+italy
+
+get_macroareas(italy)
+get_macroregions(italy)
+get_regions(italy)
+get_centers(italy)
 
 # TODO
 ```
@@ -100,6 +117,10 @@ If you encounter a bug, please file a
 to <https://github.com/UBESP-DCTV/clumpr/issues>
 
 
+## Code of conduct
+Please note that this project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this
+project you agree to abide by its terms.
 
 ## References
 

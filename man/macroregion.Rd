@@ -70,7 +70,7 @@ macroregion.
 "regions".
 
 \item \code{get_all_region}: wrapper function to access to the all the names
-of reagions appear in the detail "regions".
+of regions appear in the detail "regions".
 
 \item \code{get_state}: wrapper function to access to the name of the
 state
