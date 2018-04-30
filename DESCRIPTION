@@ -42,8 +42,11 @@ Suggests:
     stringr (>= 1.3.0),
     testthat (>= 2.0.0),
     tibble (>= 1.4.2),
-    xml2 (>= 1.2.0)
+    xml2 (>= 1.2.0),
+    knitr,
+    rmarkdown
 ByteCompile: true
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
