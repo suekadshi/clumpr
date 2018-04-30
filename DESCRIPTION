@@ -1,7 +1,7 @@
 Type: Package
 Package: clumpr
 Title: Current transpLant sUrplus Management Protocol in R
-Version: 0.0.5
+Version: 0.1.0
 Date: "`r Sys.Date()`"
 Authors@R: c(
     person("Corrado", "Lanera", email = "corrado.lanera@unipd.it",
