@@ -312,7 +312,7 @@ print.state <- function(x, ...) {
   )
 
   cat_line('    ',
-           crayon::bold('Initail strip   : '),
+           crayon::bold('Initial strip   : '),
            crayon::blue(get_initial_strip(x) %>% stringr::str_to_title()) %>%
              paste(collapse = ' --> ')
   )

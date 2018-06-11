@@ -11,9 +11,8 @@
 #'   representing the probability to accept an offered organ. Default is
 #'   \code{NULL} meaning that the probability should be considered at region
 #'   level and not at center level.
-#' @param offered [dbl] a single number between 0 and 1 (possibly included)
-#'   representing the number of organ offered from the center in the
-#'   previous period of reference. Default is 0.
+#' @param offered [dbl] a single number representing the number of organ offered
+#'   from the center in the previous period of reference. Default is 0.
 #' @param state [chr] a name of available state, i.e. included in
 #'   \code{\link{names}(\link{regions})} (note: both lowercase and Titlecase are
 #'   fine for write states, i.e. "Italy" works as well as "italy").
